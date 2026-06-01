@@ -24,19 +24,19 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   // 1. Inicializamos el estado con una función de inicialización perezosa (Lazy Initializer)
   // Esto evita el error de setState dentro del useEffect y problemas de hidratación.
-  const [cart, setCart] = useState<CartItem[]>([]);
-
-  // 2. Efecto para CARGAR: Se ejecuta solo una vez al montar en el cliente
-  useEffect(() => {
-    const savedCart = localStorage.getItem("ts-cart");
-    if (savedCart) {
-      try {
-        setCart(JSON.parse(savedCart));
-      } catch (e) {
-        console.error("Error parsing cart", e);
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    if (typeof window !== "undefined") {
+      const savedCart = localStorage.getItem("ts-cart");
+      if (savedCart) {
+        try {
+          return JSON.parse(savedCart);
+        } catch (e) {
+          console.error("Error parsing cart", e);
+        }
       }
     }
-  }, []);
+    return [];
+  });
 
   // 3. Efecto para GUARDAR: Solo guarda si el carrito tiene algo o si ya existía algo previo
   useEffect(() => {

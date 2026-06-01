@@ -3,9 +3,9 @@
 export const siteConfig = {
   // 1. Visual Identity & Branding (Casual & Vibrante)
   brand: {
-    name: "BURGER",
-    suffix: "TOWN", 
-    logo: "/logos/town-logo.png", // Mantén el path pero el estilo es el que diseñamos
+    name: "Alma Criolla",
+    suffix: "Tradición Campera", 
+    logo: "/icon.png", // Mantén el path pero el estilo es el que diseñamos
     theme: "vibrant-fast-food", 
     colors: {
       primary: "#E63946",   // Rojo Ketchup: Energético y apetitoso

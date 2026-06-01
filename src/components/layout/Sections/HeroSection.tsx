@@ -1,87 +1,86 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { MapPin, Utensils, Clock, ShoppingBag, Star } from "lucide-react";
+import { MapPin, Clock, ShoppingBag, Flame, Sparkles } from "lucide-react";
 import { useLenis } from "lenis/react";
 
 const HeroSection = () => {
   const lenis = useLenis();
 
   return (
-    <section id="hero" className="px-4 py-8 bg-[var(--background)]">
-      <div className="container mx-auto max-w-2xl flex flex-col gap-6">
-        {/* BRANDING CASERO */}
-        <div className="text-center space-y-2">
-          <div className="inline-flex items-center gap-2 bg-[var(--primary)]/10 px-3 py-1 rounded-full border border-[var(--primary)]/20">
-            <Utensils className="size-3 text-[var(--primary)]" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--primary)]">
-              Desde el corazón de la cocina
+    <section id="hero" className="relative w-full bg-criollo-bg pb-12 flex flex-col items-center">
+      
+      {/* --- IMAGEN SUPERIOR FLUIDA --- */}
+      {/* Ocupa el ancho total y se funde hacia abajo con el color del fondo de la web */}
+      <div className="relative w-full h-[45vh] min-h-[350px] max-h-[450px] overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=999&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="La estrella de la casa"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        {/* Este gradiente es el truco mágico para que la foto no corte de golpe */}
+        <div className="absolute inset-0 bg-gradient-to-t from-criollo-bg via-criollo-bg/20 to-black/30" />
+      </div>
+
+      {/* --- TARJETA FLOTANTE (App-like layout) --- */}
+      {/* Sube un poco (-mt-32) para pisar la imagen y crear profundidad 3D */}
+      <div className="relative -mt-32 w-[92%] max-w-md bg-white rounded-[2rem] p-6 sm:p-8 shadow-2xl shadow-criollo-text/5 border-2 border-criollo-border flex flex-col gap-6 z-10">
+        
+        {/* Cabecera de la tarjeta */}
+        <div className="flex flex-col items-center text-center space-y-3">
+          <div className="inline-flex items-center gap-1.5 bg-criollo-atardecer/15 px-3 py-1 rounded-full border border-criollo-atardecer/30">
+            <Sparkles className="size-3.5 text-criollo-atardecer" strokeWidth={2.5} />
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-criollo-ocre">
+              Nuestra Estrella
             </span>
           </div>
-          <h1 className="text-4xl font-serif font-black text-[var(--primary)] leading-tight">
-            Lo de Rodriguez
+          
+          {/* Pregunta Gancho en vez de título aburrido */}
+          <h1 className="text-4xl font-serif font-black text-criollo-text leading-none tracking-tight">
+            ¿Se te antojó <br/> algo nuestro?
           </h1>
-          <p className="text-[var(--muted)] font-medium italic">
-            &quot;Sabor casero, como en casa.&quot;
+          <p className="text-criollo-muted font-sans font-medium text-sm">
+            Pan artesanal, medallón casero y ese sabor a fuego que no se olvida.
           </p>
         </div>
 
-        {/* UBICACIÓN CARD */}
-        <div className="bg-white p-4 rounded-[var(--radius)] border-2 border-[var(--border)] flex items-center gap-4 shadow-sm">
-          <div className="bg-[var(--accent)]/10 p-3 rounded-full">
-            <MapPin className="size-5 text-[var(--accent)]" />
+        {/* Separador sutil */}
+        <hr className="border-criollo-border/50" />
+
+        {/* Info rápida en Grid */}
+        <div className="grid grid-cols-2 gap-3">
+          <div className="flex flex-col gap-1 bg-criollo-bg/50 p-3 rounded-xl border border-criollo-border/50">
+            <div className="flex items-center gap-1.5 text-criollo-primary">
+              <Flame className="size-4" strokeWidth={2.5} />
+              <span className="text-[10px] font-black uppercase tracking-wider">Cocina</span>
+            </div>
+            <span className="text-sm font-bold text-criollo-text">Saliendo ya</span>
           </div>
-          <div className="flex flex-col">
-            <span className="text-[10px] font-bold text-[var(--muted)] uppercase tracking-widest">
-              Retiro en local
-            </span>
-            <span className="text-sm font-bold text-[var(--card-foreground)]">
-              Ubicación exacta de la Roti
+          
+          <div className="flex flex-col gap-1 bg-criollo-bg/50 p-3 rounded-xl border border-criollo-border/50">
+            <div className="flex items-center gap-1.5 text-criollo-atardecer">
+              <MapPin className="size-4" strokeWidth={2.5} />
+              <span className="text-[10px] font-black uppercase tracking-wider">Retiro</span>
+            </div>
+            <span className="text-sm font-bold text-criollo-text truncate">
+              Gualeguaychú
             </span>
           </div>
         </div>
 
-        {/* BANNER PRINCIPAL (Milanesas/Pollo/Empanadas) */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="relative aspect-square w-full rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white"
+        {/* Botón de Acción Principal */}
+        <button
+          onClick={() => lenis?.scrollTo("#catalog", { offset: -80 })}
+          className="group relative w-full flex items-center justify-center gap-2 bg-criollo-primary text-white py-4 px-6 rounded-xl font-sans font-bold tracking-wide overflow-hidden shadow-md active:scale-[0.98] transition-all duration-200"
         >
-          <Image
-            src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?q=80&w=1000" // Imagen de comida casera
-            alt="Comida de Rotisería"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
-            <h2 className="text-white text-3xl font-serif font-bold mb-2 leading-tight">
-              ¡Hoy tenemos <br /> Pollo al Horno!
-            </h2>
-            <p className="text-white/80 text-sm mb-6">
-              Pedí ahora y retirá calentito.
-            </p>
-            <button
-              onClick={() => lenis?.scrollTo("#catalog", { offset: -80 })}
-              className="btn-primary w-full shadow-none bg-[var(--accent)]"
-            >
-              <ShoppingBag className="size-5" />
-              VER MENÚ DEL DÍA
-            </button>
-          </div>
-        </motion.div>
+          {/* Efecto de brillo al pasar el mouse por el botón */}
+          <div className="absolute inset-0 w-full h-full bg-white/20 -translate-x-full skew-x-12 group-hover:animate-[shine_1.5s_ease-in-out]" />
+          <ShoppingBag className="size-5 relative z-10" strokeWidth={2.5} />
+          <span className="relative z-10">QUIERO PEDIR</span>
+        </button>
 
-        {/* STATS RÚSTICOS */}
-        <div className="flex gap-2 overflow-x-auto no-scrollbar pt-2">
-          <div className="bg-white px-4 py-2 rounded-xl border border-[var(--border)] flex items-center gap-2 shrink-0">
-            <Clock className="size-4 text-[var(--primary)]" />
-            <span className="text-xs font-bold">15-30 min de espera</span>
-          </div>
-          <div className="bg-white px-4 py-2 rounded-xl border border-[var(--border)] flex items-center gap-2 shrink-0">
-            <Star className="size-4 fill-yellow-500 text-yellow-500" />
-            <span className="text-xs font-bold">Excelente calidad</span>
-          </div>
-        </div>
       </div>
     </section>
   );

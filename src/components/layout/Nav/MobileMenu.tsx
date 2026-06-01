@@ -5,15 +5,14 @@ import Link from "next/link";
 import {
   X,
   Menu,
-  UtensilsCrossed,
   ChevronRight,
   ChefHat,
   Clock,
+  MapPin,
 } from "lucide-react";
 import { useLenis } from "lenis/react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 interface MobileMenuProps {
@@ -32,177 +31,156 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ sections, activeSection }) => {
 
   const handleAction = (id: string) => {
     setOpen(false);
-    lenis?.scrollTo(`#${id}`, { offset: -80, duration: 1 });
+    // Un retraso mínimo para permitir que el menú comience a cerrarse de inmediato antes del scroll
+    setTimeout(() => {
+      lenis?.scrollTo(`#${id}`, { offset: -80, duration: 0.8 });
+    }, 150);
   };
 
   return (
     <div className="flex w-full justify-center relative z-[100] max-w-2xl lg:max-w-3xl">
-      {/* --- NAVBAR MÓVIL (BODEGÓN STYLE) --- */}
-      <nav className="relative w-full h-20 z-[100] flex items-center px-4 bg-[var(--background)]/90 backdrop-blur-md border-b-2 border-[var(--border)]">
+      {/* --- NAVBAR MÓVIL --- */}
+      <nav className="relative w-full h-20 z-[100] flex items-center px-4 bg-criollo-bg/90 backdrop-blur-md border-b-2 border-criollo-border shadow-sm">
         <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
           <Link
             href="/"
             className="flex items-center gap-3 active:scale-95 transition-transform"
             onClick={() => setOpen(false)}
           >
-            <div className="bg-[var(--primary)] p-2.5 rounded-xl shadow-[0_4px_0_0_#1E3D1A]">
-              <UtensilsCrossed className="text-white size-6" strokeWidth={2} />
+            <div className="overflow-hidden h-full w-20">
+              <img src="/icon.png" alt="Alma Criolla" className="size-full object-contain" />
             </div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-serif font-black tracking-tight leading-none text-[var(--primary)]">
-                Lo de Rodriguez
-                <span className="text-[var(--accent)] block text-[10px] font-sans font-bold tracking-[0.2em] mt-1 uppercase italic">
-                  Sabor Casero
+            {/* <div className="flex flex-col">
+              <span className="text-2xl font-serif font-black tracking-tight leading-none text-criollo-text">
+                Alma Criolla
+                <span className="text-criollo-primary block text-[10px] font-sans font-bold tracking-[0.25em] mt-1.5 uppercase">
+                  Tradición Campera
                 </span>
               </span>
-            </div>
+            </div> */}
           </Link>
 
           <Button
             variant="ghost"
             size="icon"
             onClick={() => setOpen(true)}
-            className="size-12 rounded-xl bg-white text-[var(--primary)] border-2 border-[var(--border)] shadow-sm active:translate-y-0.5 transition-all"
+            className="size-12 rounded-xl bg-white text-criollo-suela border-2 border-criollo-border shadow-sm hover:border-criollo-primary/40 active:translate-y-0.5 transition-all"
           >
             <Menu className="size-7" strokeWidth={2.5} />
           </Button>
         </div>
       </nav>
 
-      {/* --- MENÚ LATERAL (SIDE DRAWER) --- */}
-      <AnimatePresence>
-        {open && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              onClick={() => setOpen(false)}
-              className="fixed inset-0 z-[110] bg-slate-900/60 backdrop-blur-sm min-h-screen"
-            />
-
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-dvh w-[85%] max-w-xs z-[120] bg-[var(--background)] flex flex-col rounded-l-[2rem] shadow-2xl border-l-4 border-[var(--primary)]/10"
-            >
-              {/* Header Menú */}
-              <div className="flex justify-between items-center px-8 pt-12 pb-8 border-b border-[var(--border)]">
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-black text-[var(--accent)] uppercase tracking-[0.3em] mb-1">
-                    Nuestro Menú
-                  </span>
-                  <h3 className="text-2xl font-serif font-black text-[var(--primary)] tracking-tight">
-                    ¿Qué sale hoy?
-                  </h3>
-                </div>
-                <button
-                  onClick={() => setOpen(false)}
-                  className="size-11 flex items-center justify-center bg-white text-[var(--muted)] rounded-xl border-2 border-[var(--border)] shadow-sm active:scale-90 transition-transform"
-                >
-                  <X className="size-6" strokeWidth={3} />
-                </button>
-              </div>
-
-              {/* Categorías */}
-              <nav className="flex-1 px-4 py-6 overflow-y-auto no-scrollbar">
-                <ul className="space-y-3">
-                  {sections.map((sec) => {
-                    const isActive =
-                      activeSection === sec.id && pathname === "/";
-                    return (
-                      <li key={sec.id}>
-                        <button
-                          onClick={() => handleAction(sec.id)}
-                          className={cn(
-                            "w-full flex items-center justify-between p-5 rounded-xl transition-all duration-300 border-2",
-                            isActive
-                              ? "bg-[var(--primary)] text-white border-[var(--primary)] shadow-lg shadow-green-900/20 translate-x-2"
-                              : "bg-white text-[var(--card-foreground)] border-transparent font-bold hover:border-[var(--border)]",
-                          )}
-                        >
-                          <span className="text-lg font-serif tracking-tight">
-                            {sec.label}
-                          </span>
-                          {isActive ? (
-                            <ChefHat className="size-5 text-white/80" />
-                          ) : (
-                            <ChevronRight
-                              className="size-5 text-[var(--border)]"
-                              strokeWidth={3}
-                            />
-                          )}
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </nav>
-
-              {/* Info de la Rotisería */}
-              <div className="p-8 bg-white border-t-2 border-[var(--border)] space-y-5">
-                <div className="flex items-center gap-4">
-                  <div className="size-12 rounded-xl bg-[var(--background)] flex items-center justify-center shrink-0 border-2 border-[var(--border)]">
-                    <Clock className="size-6 text-[var(--accent)]" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] text-[var(--muted)] font-black uppercase tracking-widest leading-none mb-1">
-                      Cocina Activa
-                    </p>
-                    <p className="text-sm font-bold text-[var(--card-foreground)]">
-                      11:30-14:30 | 19:30-23:30
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="size-12 rounded-xl bg-[var(--primary)]/10 flex items-center justify-center shrink-0">
-                    <MapPinIcon className="size-6 text-[var(--primary)]" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] text-[var(--muted)] font-black uppercase tracking-widest leading-none mb-1">
-                      Punto de Encuentro
-                    </p>
-                    <p className="text-sm font-bold text-[var(--card-foreground)]">
-                      Tu Ubicación en la Ciudad
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </>
+      {/* --- MENÚ LATERAL (SIDE DRAWER FLUIDO CON CSS NATIVO) --- */}
+      {/* Backdrop de fondo */}
+      <div
+        onClick={() => setOpen(false)}
+        className={cn(
+          "fixed inset-0 z-[110] bg-criollo-text/30 backdrop-blur-sm min-h-screen transition-opacity duration-300 pointer-events-none opacity-0",
+          open && "opacity-100 pointer-events-auto"
         )}
-      </AnimatePresence>
+      />
+
+      {/* Panel del Contenedor */}
+      <div
+  className={cn(
+    "fixed top-0 right-0 h-dvh w-[85%] max-w-xs z-[120] bg-criollo-bg flex flex-col rounded-l-[2rem] shadow-[-10px_0_40px_rgba(0,0,0,0.1)] border-l-4 border-criollo-primary/20 transition-transform duration-300 ease-out translate-x-full",
+    open && "translate-x-0"
+  )}
+>
+  {/* --- HEADER MENÚ CON BACKGROUND COMPLETO --- */}
+  {/* Agregamos rounded-tl-[2rem] para que la imagen respete la curvatura del panel */}
+  <div className="relative h-32 w-full flex items-center justify-end px-6 border-b-2 border-criollo-border overflow-hidden rounded-tl-[2rem]">
+    
+    {/* Imagen de fondo absoluta */}
+    <div className="absolute inset-0 w-full h-full pointer-events-none">
+      <img 
+        src="https://i.postimg.cc/h41c45fc/almacriolla.jpg" 
+        alt="Alma Criolla Fondo" 
+        className="w-full h-full object-cover object-center" 
+      />
+      {/* Overlay mínimo para control de contraste */}
+      <div className="absolute inset-0 bg-black/5" />
+    </div>
+
+    {/* Botón de cierre flotante */}
+    <button
+      onClick={() => setOpen(false)}
+      className="relative z-10 size-11 flex items-center justify-center bg-white text-criollo-muted rounded-xl border-2 border-criollo-border shadow-sm active:scale-90 transition-transform hover:text-criollo-primary"
+    >
+      <X className="size-6" strokeWidth={2.5} />
+    </button>
+  </div>
+
+  {/* --- LISTADO DE CATEGORÍAS (NATIVO Y FLUIDO) --- */}
+  <nav className="flex-1 px-4 py-6 overflow-y-auto no-scrollbar">
+    <ul className="space-y-3">
+      {sections.map((sec) => {
+        const isActive = activeSection === sec.id && pathname === "/";
+        return (
+          <li key={sec.id}>
+            <button
+              onClick={() => handleAction(sec.id)}
+              className={cn(
+                "w-full flex items-center justify-between p-4 rounded-xl transition-all duration-200 border-2 font-sans text-base font-bold",
+                isActive
+                  ? "bg-criollo-primary text-white border-criollo-primary shadow-lg shadow-criollo-primary/20 translate-x-2"
+                  : "bg-white text-criollo-text border-criollo-border shadow-sm hover:border-criollo-atardecer hover:text-criollo-primary",
+              )}
+            >
+              <span className={cn(isActive ? "font-serif text-lg tracking-tight" : "font-sans")}>
+                {sec.label}
+              </span>
+              {isActive ? (
+                <ChefHat className="size-5 text-white" strokeWidth={2.5} />
+              ) : (
+                <ChevronRight
+                  className="size-5 text-criollo-border transition-colors group-hover:text-criollo-atardecer"
+                  strokeWidth={3}
+                />
+              )}
+            </button>
+          </li>
+        );
+      })}
+    </ul>
+  </nav>
+
+  {/* --- INFO Y DATOS ÚTILES (ESTILO TARJETA INFERIOR) --- */}
+  <div className="p-6 bg-white border-t-2 border-criollo-border space-y-5 rounded-bl-[2rem]">
+    {/* Horarios */}
+    <div className="flex items-center gap-4">
+      <div className="size-12 rounded-xl bg-criollo-bg flex items-center justify-center shrink-0 border-2 border-criollo-border">
+        <Clock className="size-6 text-criollo-atardecer" strokeWidth={2.5} />
+      </div>
+      <div className="flex flex-col">
+        <p className="text-[10px] text-criollo-muted font-black uppercase tracking-widest leading-none mb-1">
+          Cocina Activa
+        </p>
+        <p className="text-sm font-bold text-criollo-text font-sans">
+          11:30-14:30 | 19:30-23:30
+        </p>
+      </div>
+    </div>
+
+    {/* Ubicación */}
+    <div className="flex items-center gap-4">
+      <div className="size-12 rounded-xl bg-criollo-primary/10 flex items-center justify-center shrink-0 border-2 border-criollo-primary/20">
+        <MapPin className="size-6 text-criollo-primary" strokeWidth={2.5} />
+      </div>
+      <div className="flex flex-col">
+        <p className="text-[10px] text-criollo-muted font-black uppercase tracking-widest leading-none mb-1">
+          Punto de Encuentro
+        </p>
+        <p className="text-sm font-bold text-criollo-text font-sans truncate max-w-[180px]">
+          Alberdi 2921, Chajarí 3228
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
   );
 };
-
-// Pequeño helper para el icono de pin (puedes usar el de lucide-react)
-const MapPinIcon = ({
-  className,
-  size,
-}: {
-  className?: string;
-  size?: number;
-}) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={size || 24}
-    height={size || 24}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-    <circle cx="12" cy="10" r="3" />
-  </svg>
-);
 
 export default MobileMenu;

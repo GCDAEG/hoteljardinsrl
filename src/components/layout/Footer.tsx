@@ -3,84 +3,89 @@ import React from "react";
 import {
   Instagram,
   Facebook,
-  Store,
   MapPin,
   Heart,
   ArrowUpCircle,
   MessageCircle,
-  UtensilsCrossed,
 } from "lucide-react";
 import { useLenis } from "lenis/react";
 import { sections } from "@/lib/sections";
 import Link from "next/link";
+import { siteConfig } from "@/lib/site/siteConfig";
 
 export function FooterSection() {
   const lenis = useLenis();
 
-  // Datos específicos de Lo de Rodriguez
-  const WHATSAPP_NUMBER = "5493454000000";
+  // Datos de Alma Criolla Bodegón
+  const WHATSAPP_NUMBER = "549XXXXXXXXXX"; // ← Reemplaza con el número real
 
   return (
-    <footer className="bg-slate-950 text-white pt-20 pb-12 px-6 flex flex-col items-center relative overflow-hidden max-w-2xl lg:max-w-3xl w-full mx-auto">
-      {/* DETALLE DE DISEÑO RÚSTICO (LÍNEA DIVISORIA) */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[3px] bg-gradient-to-r from-transparent via-[var(--primary)]/40 to-transparent" />
+    <footer className="bg-[#0f0c08] text-white pt-20 pb-12 px-6 flex flex-col items-center relative overflow-hidden max-w-2xl lg:max-w-3xl w-full mx-auto">
+      {/* Detalle rústico superior */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[3px] bg-gradient-to-r from-transparent via-amber-600/50 to-transparent" />
 
       <div className="z-10 flex flex-col items-center max-w-xl w-full">
-        {/* BRANDING FINAL ESTILO BODEGÓN */}
+        {/* Branding */}
         <div className="flex flex-col items-center gap-4 mb-14">
-          <div className="size-16 bg-[var(--primary)] rounded-2xl flex items-center justify-center shadow-[0_10px_0_0_#1E3D1A] border border-white/10">
-            <UtensilsCrossed className="text-white size-8" strokeWidth={2} />
+          <div className="size-32 rounded-2xl flex items-center justify-center border border-amber-900/30 bg-black/30">
+            <img 
+              src={siteConfig.brand.logo} 
+              alt="Alma Criolla Bodegón" 
+              className="drop-shadow-md"
+            />
           </div>
           <div className="text-center">
-            <h2 className="text-3xl font-serif font-black tracking-tight italic">
-              Lo de Rodriguez
+            <h2 className="text-4xl font-serif font-bold tracking-tighter italic text-amber-100">
+              Alma Criolla
             </h2>
-            <p className="text-[10px] font-bold text-[var(--muted)] tracking-[0.4em] uppercase mt-1">
-              Sabor Casero y Tradicional
+            <p className="text-amber-600 text-sm tracking-[0.25em] font-medium mt-1">
+              BODEGÓN ARGENTINO
             </p>
           </div>
         </div>
 
-        {/* CONTACT CARDS (BODEGÓN STYLE) */}
+        {/* Contact Cards */}
         <div className="grid grid-cols-1 gap-4 w-full mb-14">
+          {/* WhatsApp */}
           <a
             href={`https://wa.me/${WHATSAPP_NUMBER}`}
             target="_blank"
             rel="noreferrer"
-            className="group flex items-center gap-5 bg-white/[0.03] hover:bg-white/[0.07] p-6 rounded-[var(--radius)] border border-white/5 transition-all active:scale-[0.98]"
+            className="group flex items-center gap-5 bg-white/[0.04] hover:bg-white/[0.08] p-6 rounded-2xl border border-amber-900/30 hover:border-amber-600/40 transition-all active:scale-[0.98]"
           >
-            <div className="size-14 rounded-2xl bg-[#25D366]/10 flex items-center justify-center shrink-0 border border-[#25D366]/20">
+            <div className="size-14 rounded-2xl bg-[#25D366]/10 flex items-center justify-center shrink-0 border border-[#25D366]/30">
               <MessageCircle
-                size={24}
-                className="text-[#25D366] fill-[#25D366]/10"
+                size={26}
+                className="text-[#25D366]"
               />
             </div>
             <div className="flex flex-col text-left">
-              <span className="text-sm font-serif font-bold text-white tracking-tight">
-                Hacer pedido por WhatsApp
+              <span className="text-base font-serif font-semibold text-white">
+                Pedir por WhatsApp
               </span>
-              <span className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">
-                Te respondemos al toque
+              <span className="text-sm text-emerald-400 font-medium">
+                Respuesta rápida
               </span>
             </div>
           </a>
 
-          <div className="flex items-center gap-5 bg-white/[0.03] p-6 rounded-[var(--radius)] border border-white/5">
-            <div className="size-14 rounded-2xl bg-[var(--accent)]/10 flex items-center justify-center shrink-0 border border-[var(--accent)]/20">
-              <MapPin size={24} className="text-[var(--accent)]" />
+          {/* Ubicación */}
+          <div className="flex items-center gap-5 bg-white/[0.04] p-6 rounded-2xl border border-amber-900/30">
+            <div className="size-14 rounded-2xl bg-amber-600/10 flex items-center justify-center shrink-0 border border-amber-600/30">
+              <MapPin size={26} className="text-amber-600" />
             </div>
             <div className="flex flex-col text-left">
-              <span className="text-sm font-serif font-bold text-white tracking-tight">
-                Nuestra Cocina
+              <span className="text-base font-serif font-semibold text-white">
+                Visítanos
               </span>
-              <span className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">
-                Ubicación del Local • Ciudad
+              <span className="text-sm text-amber-500/80">
+                Alberdi 2921, Chajarí 3228 • Entre Ríos
               </span>
             </div>
           </div>
         </div>
 
-        {/* NAVEGACIÓN RÁPIDA (BORDERS RÚSTICOS) */}
+        {/* Navegación Rápida */}
         <nav className="mb-14 w-full">
           <ul className="flex flex-wrap justify-center gap-3">
             {sections.map((section) => (
@@ -89,7 +94,7 @@ export function FooterSection() {
                   onClick={() =>
                     lenis?.scrollTo(`#${section.id}`, { offset: -100 })
                   }
-                  className="px-5 py-2.5 text-[10px] font-bold uppercase tracking-widest text-slate-500 hover:text-[var(--primary)] transition-all border border-white/5 hover:border-[var(--primary)]/30 rounded-xl bg-white/[0.02]"
+                  className="px-6 py-3 text-xs font-bold uppercase tracking-widest text-amber-400/80 hover:text-amber-100 transition-all border border-amber-900/40 hover:border-amber-600/40 rounded-xl bg-white/[0.02] hover:bg-white/[0.04]"
                 >
                   {section.label}
                 </button>
@@ -98,61 +103,57 @@ export function FooterSection() {
           </ul>
         </nav>
 
-        {/* REDES SOCIALES */}
-        <div className="flex gap-5 mb-20">
-          {[
-            {
-              icon: Instagram,
-              href: "https://www.instagram.com/rotiseria_loderodriguez/",
-            },
-            { icon: Facebook, href: "#" },
-          ].map((social, i) => (
-            <Link
-              key={i}
-              href={social.href}
-              target={social.href !== "#" ? "_blank" : undefined}
-              className="size-14 rounded-2xl bg-white/[0.03] text-slate-500 flex items-center justify-center hover:bg-[var(--primary)] hover:text-white transition-all duration-500 border border-white/5 hover:border-transparent group"
-            >
-              <social.icon className="size-6 group-hover:scale-110 transition-transform" />
-            </Link>
-          ))}
+        {/* Redes Sociales */}
+        <div className="flex gap-6 mb-20">
+          <Link
+            href="https://www.instagram.com/almacriolla.bodegon/"
+            target="_blank"
+            className="size-16 rounded-2xl bg-white/[0.04] hover:bg-gradient-to-br hover:from-pink-500 hover:to-amber-500 text-slate-400 hover:text-white flex items-center justify-center transition-all border border-amber-900/30 hover:border-transparent group"
+          >
+            <Instagram className="size-7 group-hover:scale-110 transition-transform" />
+          </Link>
+
+          <Link
+            href="#"
+            className="size-16 rounded-2xl bg-white/[0.04] hover:bg-blue-600/90 text-slate-400 hover:text-white flex items-center justify-center transition-all border border-amber-900/30 hover:border-transparent group"
+          >
+            <Facebook className="size-7 group-hover:scale-110 transition-transform" />
+          </Link>
         </div>
       </div>
 
-      {/* SUB-FOOTER TRADICIONAL */}
-      <div className="w-full max-w-2xl border-t border-white/5 pt-12 flex flex-col items-center gap-8">
+      {/* Sub Footer */}
+      <div className="w-full max-w-2xl border-t border-amber-900/30 pt-12 flex flex-col items-center gap-8">
         <button
           onClick={() => lenis?.scrollTo(0)}
-          className="flex flex-col items-center gap-3 text-slate-700 hover:text-[var(--primary)] transition-all group"
+          className="flex flex-col items-center gap-3 text-amber-700 hover:text-amber-400 transition-all group"
         >
           <ArrowUpCircle
-            size={32}
-            strokeWidth={1}
+            size={36}
+            strokeWidth={1.5}
             className="group-hover:-translate-y-2 transition-transform duration-500"
           />
-          <span className="text-[10px] font-bold uppercase tracking-[0.4em]">
+          <span className="text-xs font-bold uppercase tracking-widest">
             Volver al Inicio
           </span>
         </button>
 
         <div className="flex flex-col items-center gap-4 text-center">
-          <p className="text-[11px] font-bold text-slate-600 uppercase tracking-widest flex items-center gap-2">
+          <p className="text-sm font-light text-amber-500/70 flex items-center gap-2">
             Hecho con{" "}
             <Heart
-              size={12}
-              className="text-[var(--accent)] fill-[var(--accent)] animate-pulse"
+              size={14}
+              className="text-red-500 fill-red-500 animate-pulse"
             />{" "}
-            para
-            <span className="text-slate-400 font-serif italic">
-              Lo de Rodriguez
-            </span>
+            en Entre Ríos
           </p>
+          
           <div className="space-y-1">
-            <p className="text-[9px] font-bold text-slate-800 uppercase tracking-[0.2em]">
-              © {new Date().getFullYear()} — ROTISERÍA Y BODEGÓN
+            <p className="text-[10px] font-medium text-amber-900/70 tracking-widest">
+              © {new Date().getFullYear()} ALMA CRIOLLA BODEGÓN
             </p>
-            <p className="text-[9px] font-bold text-slate-900 uppercase tracking-[0.2em] opacity-30">
-              Desarrollado con gusto por TUWEBHOY
+            <p className="text-[10px] text-amber-950/60">
+              Todos los derechos reservados
             </p>
           </div>
         </div>

@@ -4,24 +4,20 @@ import "./globals.css";
 import { FooterSection } from "../components/layout/Footer";
 import ExampleMessage from "@/components/layout/Sections/Example";
 import { Navbar } from "@/components/layout/Nav";
-import { roboto, lora, inter } from "@/lib/fonts";
+// Mantenemos lora e inter para la nueva identidad, quitamos roboto si ya no se usa
+import { lora, inter } from "@/lib/fonts"; 
 import ReactLenis from "lenis/react";
 import PageLoader from "./PageLoader";
-import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { CartProvider } from "@/context/CartContext";
-
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: {
     default: "TWH Demo",
     template: "%s | Tu Web Hoy",
   },
-
   description:
     "Creamos páginas web simples y modernas para emprendedores. Ideales para mostrar tu negocio y empezar a vender.",
-
   openGraph: {
     title: "Tu web lista en días 🚀",
     description:
@@ -37,7 +33,6 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_AR",
   },
-
   twitter: {
     card: "summary_large_image",
     title: "Tu web lista en días",
@@ -47,7 +42,6 @@ export const metadata: Metadata = {
   },
 };
 
-// app/layout.tsx (versión recomendada)
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -56,25 +50,22 @@ export default function RootLayout({
   return (
     <html
       lang="es"
+      // Inyectamos las variables de Lora (serif) e Inter (sans)
       className={cn(
-        roboto.variable,
-        lora.variable,
         inter.variable,
-        "font-sans",
-        geist.variable,
+        lora.variable,
+        "font-sans" // Forzamos que Inter sea la tipografía base de toda la web
       )}
       suppressHydrationWarning
     >
       <body
         className="
-          min-h-screen antialiased text-foreground bg-fixed
+          min-h-screen antialiased text-criollo-text bg-criollo-bg
           overflow-x-hidden
-          bg-background
           min-w-screen
           flex flex-col items-center
         "
       >
-        {/* Opcional: capa extra para overlay si quieres más control */}
         <ReactLenis root>
           <CartProvider>
             <PageLoader />

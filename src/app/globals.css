@@ -1,53 +1,40 @@
 @import "tailwindcss";
 
-/* PALETA LO DE RODRIGUEZ - Tradición y Sabor Casero */
-:root {
-  --primary: #2D5A27;         /* Verde Oliva Profundo (Tradición) */
-  --primary-foreground: #FFFFFF;
-  
-  --background: #FDF8F1;      /* Crema suave (Papel manteca/madera) */
-  --card: #FFFFFF;
-  --card-foreground: #2C2C2C;
-  
-  --accent: #BC2F32;          /* Rojo Tomate (Pasión por la cocina) */
-  --muted: #7A7167;
-  --border: #E8DCCB;
-  
-  --radius: 1rem;             /* Bordes más clásicos, no tan redondeados como Gromet */
+@theme {
+  /* Registramos las variables directamente en el tema de Tailwind v4 */
+  --color-criollo-bg: hsl(var(--criollo-bg));
+  --color-criollo-text: hsl(var(--criollo-text));
+  --color-criollo-muted: hsl(var(--criollo-muted));
+  --color-criollo-primary: hsl(var(--criollo-primary));
+  --color-criollo-suela: hsl(var(--criollo-suela));
+  --color-criollo-atardecer: hsl(var(--criollo-atardecer));
+  --color-criollo-border: hsl(var(--criollo-border));
 }
 
-@layer components {
-  /* Botón Principal: Estilo rústico pero moderno */
-  .btn-primary {
-    @apply bg-[var(--primary)] text-white font-bold py-4 px-6 
-           rounded-[var(--radius)] transition-all duration-300 active:scale-95 
-           flex items-center justify-center gap-2 
-           shadow-[0_8px_0_0_#1E3D1A] /* Efecto de botón 3D clásico */
-           active:shadow-none active:translate-y-[4px];
+@layer base {
+  :root {
+    /* Fondo: Un crema cálido y luminoso que emula el resplandor del cielo del logo */
+    --criollo-bg: 43 60% 96%;           /* #FAF6EE */
+    
+    /* Textos: Un marrón madera quemada muy oscuro y elegante para máxima legibilidad */
+    --criollo-text: 24 25% 12%;         /* #1F1916 */
+    --criollo-muted: 24 12% 42%;        /* #756862 */
+    
+    /* Primario: El tono óxido/terracota texturizado de las letras "Alma Criolla" */
+    --criollo-primary: 18 76% 36%;      /* #A23A13 */
+    
+    /* Acentos: El color de la madera templada de la guitarra y el amarillo del sol */
+    --criollo-suela: 22 55% 22%;        /* #562B15 */
+    --criollo-atardecer: 41 98% 50%;    /* #FFAE00 */
+    
+    /* Bordes sutiles orgánicos */
+    --criollo-border: 40 20% 88%;       /* #EAE3D5 */
   }
 
-  /* Glass Card: Más opaca para lectura fácil sobre fondos de comida */
-  .glass-card {
-    @apply bg-white/90 backdrop-blur-md border border-[var(--border)] shadow-xl;
+  body {
+    background-color: var(--color-criollo-bg);
+    color: var(--color-criollo-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-
-  /* Category Pills */
-  .category-pill {
-    @apply px-5 py-2 rounded-xl font-bold transition-all whitespace-nowrap
-           border-2 text-sm;
-  }
-
-  .category-pill-active {
-    @apply bg-[var(--accent)] text-white border-[var(--accent)] shadow-md;
-  }
-
-  .category-pill-inactive {
-    @apply bg-white text-[var(--muted)] border-[var(--border)] hover:bg-[var(--background)];
-  }
-}
-
-body {
-  background-color: var(--background);
-  color: var(--card-foreground);
-  font-family: 'Georgia', serif; /* O la que elijas para el toque tradicional */
 }
