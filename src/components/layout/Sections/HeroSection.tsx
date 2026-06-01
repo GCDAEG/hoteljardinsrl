@@ -65,7 +65,7 @@ const HeroSection = () => {
               <span className="text-[10px] font-black uppercase tracking-wider">Retiro</span>
             </div>
             <span className="text-sm font-bold text-criollo-text truncate">
-              Gualeguaychú
+              Chajarí, Entre Ríos
             </span>
           </div>
         </div>
