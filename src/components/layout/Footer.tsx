@@ -79,7 +79,7 @@ export function FooterSection() {
 
           <div className="text-[10px] text-gula-muted uppercase tracking-widest text-center">
             <p>© {new Date().getFullYear()} Santa Gula Rotisería</p>
-            <p className="mt-1">Gualeguaychú, Entre Ríos</p>
+            <p className="mt-1">Chajarí, Entre Ríos</p>
           </div>
         </div>
       </div>
