@@ -4,9 +4,9 @@ import Section from "@/components/layout/Section";
 import { MapPin, Clock, Navigation, Award } from "lucide-react";
 
 export default function LocationSection() {
-  const ADDRESS = "Alberdi 2921";
-  const CITY = "Gualeguaychú, Entre Ríos";
-  const MAPS_URL = "https://maps.google.com"; // Reemplazar por tu enlace real
+  const ADDRESS = "Doctor Planas 2551";
+  const CITY = "Chajarí, Entre Ríos";
+  const MAPS_URL = "https://maps.app.goo.gl/xerrVr6oTSyKxDfw5"; // Reemplazar por tu enlace real
 
   return (
     <Section
