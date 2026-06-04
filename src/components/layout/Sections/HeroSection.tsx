@@ -71,7 +71,7 @@ const HeroSection = () => {
           </button>
 
           <span className="text-[11px] font-bold text-stone-400 uppercase tracking-widest">
-            Gualeguaychú, Entre Ríos
+            Chajarí, Entre Ríos
           </span>
         </div>
 
