@@ -6,7 +6,7 @@ import { Info } from "lucide-react";
 
 const ExampleMessage = () => {
   return (
-    <section className="bg-zinc-950 py-12 border-t border-white/5">
+    <section className="bg-zinc-950 py-12 border-t border-white/5 w-full max-w-5xl">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

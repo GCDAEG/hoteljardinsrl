@@ -39,7 +39,7 @@ export default async function Home() {
   console.log("los posts", posts);
   return (
     <main
-      className={`min-h-screen w-full font-base max-w-2xl lg:max-w-3xl shadow-md`}
+      className={`min-h-screen w-full font-base max-w-2xl lg:max-w-5xl shadow-md overflow-x-hidden`}
     >
       <HeroSection />
       <ProductCatalog posts={posts} />

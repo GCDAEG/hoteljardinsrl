@@ -1,39 +1,42 @@
 @import "tailwindcss";
 
 @theme {
-  /* Registramos las variables directamente en el tema de Tailwind v4 */
-  --color-criollo-bg: hsl(var(--criollo-bg));
-  --color-criollo-text: hsl(var(--criollo-text));
-  --color-criollo-muted: hsl(var(--criollo-muted));
-  --color-criollo-primary: hsl(var(--criollo-primary));
-  --color-criollo-suela: hsl(var(--criollo-suela));
-  --color-criollo-atardecer: hsl(var(--criollo-atardecer));
-  --color-criollo-border: hsl(var(--criollo-border));
+  /* Registramos las fuentes de Next.js */
+  --font-inter: var(--font-inter);
+  --font-lora: var(--font-lora);
+
+  /* Registramos las variables del nuevo estilo Santa Gula */
+  --color-gula-bg: hsl(var(--gula-bg));
+  --color-gula-text: hsl(var(--gula-text));
+  --color-gula-muted: hsl(var(--gula-muted));
+  --color-gula-primary: hsl(var(--gula-primary));
+  --color-gula-gold: hsl(var(--gula-gold));
+  --color-gula-border: hsl(var(--gula-border));
 }
 
 @layer base {
   :root {
-    /* Fondo: Un crema cálido y luminoso que emula el resplandor del cielo del logo */
-    --criollo-bg: 43 60% 96%;           /* #FAF6EE */
+    /* Fondo: Un off-white muy limpio y gourmet que resalta la elegancia */
+    --gula-bg: 40 20% 98%;          /* #FBFBF9 */
     
-    /* Textos: Un marrón madera quemada muy oscuro y elegante para máxima legibilidad */
-    --criollo-text: 24 25% 12%;         /* #1F1916 */
-    --criollo-muted: 24 12% 42%;        /* #756862 */
+    /* Textos: Gris piedra muy oscuro, casi negro para contraste premium */
+    --gula-text: 24 25% 12%;        /* #1F1916 */
+    --gula-muted: 24 12% 42%;       /* #756862 */
     
-    /* Primario: El tono óxido/terracota texturizado de las letras "Alma Criolla" */
-    --criollo-primary: 18 76% 36%;      /* #A23A13 */
+    /* Primario: El borravino / magenta profundo del logo de Santa Gula */
+    --gula-primary: 340 66% 33%;    /* #8B1C3F aprox */
     
-    /* Acentos: El color de la madera templada de la guitarra y el amarillo del sol */
-    --criollo-suela: 22 55% 22%;        /* #562B15 */
-    --criollo-atardecer: 41 98% 50%;    /* #FFAE00 */
+    /* Acentos: El dorado del gorro de chef y los ribetes */
+    --gula-gold: 40 50% 55%;        /* #C5A059 aprox */
     
-    /* Bordes sutiles orgánicos */
-    --criollo-border: 40 20% 88%;       /* #EAE3D5 */
+    /* Bordes: Sutiles, para separar tarjetas sin ensuciar el diseño */
+    --gula-border: 40 20% 88%;      /* #EAE3D5 */
   }
 
   body {
-    background-color: var(--color-criollo-bg);
-    color: var(--color-criollo-text);
+    /* Aplicamos la fuente Inter por defecto a todo el cuerpo */
+    background-color: var(--color-gula-bg);
+    color: var(--color-gula-text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

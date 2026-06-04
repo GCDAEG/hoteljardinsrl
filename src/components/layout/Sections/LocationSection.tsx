@@ -1,87 +1,54 @@
 "use client";
 import React from "react";
 import Section from "@/components/layout/Section";
-import Image from "next/image";
-import {
-  MapPin,
-  Clock,
-  Navigation,
-  Flame,
-  CheckCircle2,
-} from "lucide-react";
+import { MapPin, Clock, Navigation, Award } from "lucide-react";
 
 export default function LocationSection() {
-  // Datos locales para Alma Criolla
-  const ADDRESS = "Alberdi 2921"; 
-  const CITY = "Chajarí, Entre Ríos";
-  const MAPS_URL = "https://www.google.com/maps";
+  const ADDRESS = "Alberdi 2921";
+  const CITY = "Gualeguaychú, Entre Ríos";
+  const MAPS_URL = "https://maps.google.com"; // Reemplazar por tu enlace real
 
   return (
     <Section
       id="ubicacion"
-      className="bg-criollo-bg py-16 flex justify-center w-full"
+      className="bg-gula-bg py-20 flex justify-center w-full"
       height="content"
     >
-      <div className="w-full max-w-2xl lg:max-w-3xl flex flex-col gap-8 sm:px-0">
-        
-        {/* --- HEADER CAMPERO --- */}
-        <div className="flex items-end justify-between px-1 border-b-2 border-criollo-border pb-3">
-          <div className="flex flex-col">
-            <span className="text-[10px] font-black text-criollo-primary uppercase tracking-[0.25em] mb-1.5">
-              Punto de Encuentro
-            </span>
-            <h2 className="text-3xl font-serif font-black text-criollo-text tracking-tight">
-              Nuestro Fogón
-            </h2>
-          </div>
-          <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-xl border-2 border-criollo-border shadow-sm">
-            <div className="size-2.5 bg-criollo-primary rounded-full animate-pulse" />
-            <span className="text-[11px] font-bold text-criollo-text font-sans uppercase tracking-wide">
-              Fuego Prendido
-            </span>
-          </div>
+      <div className="w-full max-w-2xl md:px-0 flex flex-col gap-12">
+        {/* --- ENCABEZADO --- */}
+        <div className="text-center space-y-3">
+          <span className="text-[10px] font-bold text-gula-primary uppercase tracking-[0.3em]">
+            Visítanos
+          </span>
+          <h2 className="text-4xl font-serif text-gula-text">Nuestro Lugar</h2>
+          <div className="h-[1px] w-12 bg-gula-gold mx-auto" />
         </div>
 
-        {/* --- MAPA CARD ESTILO PORTARRETRATO --- */}
-        <div className="bg-white rounded-[2rem] border-2 border-criollo-border overflow-hidden shadow-sm group">
-          
-          {/* Contenedor del Mapa (Interactivo nativo) */}
+        {/* --- MAPA & UBICACIÓN --- */}
+        <div className="bg-white rounded-2xl border border-gula-border shadow-sm overflow-hidden">
+          {/* Mapa minimalista */}
           <div
             onClick={() => window.open(MAPS_URL, "_blank")}
-            className="relative aspect-video bg-criollo-border/20 cursor-pointer overflow-hidden"
+            className="relative aspect-[21/9] w-full bg-stone-200 cursor-pointer group"
           >
-            {/* Imagen del mapa */}
-            <Image
-              src="https://images.unsplash.com/photo-1516733725897-1aa73b87c8e8?q=80&w=1000"
-              alt="Ubicación Alma Criolla"
-              fill
-              className="object-cover opacity-80 mix-blend-multiply transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-
-            {/* Marcador Estilo Fuego (CSS Puro) */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="relative flex items-center justify-center">
-                {/* Ping de fondo (Ondas) */}
-                <div className="absolute size-20 bg-criollo-primary/30 rounded-full animate-ping" />
-                {/* Círculo central estático */}
-                <div className="bg-criollo-primary p-4 rounded-full shadow-lg text-white relative z-10 border-2 border-white">
-                  <Flame className="size-8" strokeWidth={2.5} />
-                </div>
-              </div>
+            <div className="absolute inset-0 flex items-center justify-center bg-stone-300">
+              <span className="text-xs uppercase tracking-widest text-stone-500 font-bold">
+                Ver en el mapa
+              </span>
             </div>
+            {/* Overlay sutil para el efecto de clic */}
+            <div className="absolute inset-0 bg-gula-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
 
-          {/* Datos de Dirección */}
-          <div className="p-6 md:p-8 flex flex-col gap-6 bg-white relative z-20">
-            <div className="flex items-center gap-5">
-              <div className="bg-criollo-bg p-4 rounded-2xl border-2 border-criollo-border text-criollo-atardecer">
-                <MapPin className="size-7" strokeWidth={2.5} />
+          {/* Información de contacto */}
+          <div className="p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <div className="bg-gula-bg p-3 rounded-full text-gula-gold border border-gula-border">
+                <MapPin className="size-6" strokeWidth={1.5} />
               </div>
-              <div className="flex flex-col">
-                <p className="text-2xl font-serif font-bold text-criollo-text leading-none">
-                  {ADDRESS}
-                </p>
-                <p className="text-sm font-sans font-bold text-criollo-muted mt-1.5 tracking-wide">
+              <div className="text-left">
+                <p className="text-xl font-serif text-gula-text">{ADDRESS}</p>
+                <p className="text-xs text-gula-muted uppercase tracking-widest mt-0.5">
                   {CITY}
                 </p>
               </div>
@@ -89,60 +56,42 @@ export default function LocationSection() {
 
             <button
               onClick={() => window.open(MAPS_URL, "_blank")}
-              className="w-full flex items-center justify-center bg-criollo-primary text-white py-4 px-6 rounded-xl font-sans font-bold tracking-wide transition-all duration-200 active:scale-[0.98] shadow-md border border-white/10 hover:bg-orange-800"
+              className="flex items-center gap-2 px-6 py-3 bg-gula-text text-white rounded-full font-bold text-sm hover:bg-gula-primary transition-colors"
             >
-              CÓMO LLEGAR AL FOGÓN
-              <Navigation className="size-5 fill-white ml-2" />
+              CÓMO LLEGAR <Navigation className="size-4" />
             </button>
           </div>
         </div>
 
-        {/* --- INFO DE SERVICIO --- */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          
-          {/* Horarios */}
-          <div className="bg-white rounded-[1.5rem] border-2 border-criollo-border p-6 flex items-center gap-4 shadow-sm hover:border-criollo-atardecer/50 transition-colors">
-            <div className="size-14 bg-criollo-bg rounded-2xl flex items-center justify-center shrink-0 border border-criollo-border text-criollo-atardecer">
-              <Clock className="size-7" strokeWidth={2.5} />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[10px] font-black text-criollo-muted uppercase tracking-widest mb-1">
-                Horarios
-              </span>
-              <span className="text-sm font-bold text-criollo-text leading-tight font-sans">
-                Mediodía y Noche <br />
-                <span className="text-criollo-primary font-semibold">
-                  11:30 - 14:30 | 19:30 - 23:30
+        {/* --- DETALLES DE SERVICIO --- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="flex items-start gap-4 p-6 border-b border-gula-border md:border-b-0">
+            <Clock className="size-6 text-gula-gold mt-1" strokeWidth={1.5} />
+            <div>
+              <p className="font-serif text-lg text-gula-text">Horarios</p>
+              <p className="text-sm text-gula-muted mt-1 leading-relaxed">
+                Abierto todos los días
+                <br />
+                <span className="font-bold text-gula-text">
+                  11:30-14:30 | 19:30-23:30
                 </span>
-              </span>
+              </p>
             </div>
           </div>
 
-          {/* Servicio */}
-          <div className="bg-white rounded-[1.5rem] border-2 border-criollo-border p-6 flex items-center gap-4 shadow-sm hover:border-criollo-primary/30 transition-colors">
-            <div className="size-14 bg-criollo-primary/10 rounded-2xl flex items-center justify-center shrink-0 border border-criollo-primary/20 text-criollo-primary">
-              <Flame className="size-7" strokeWidth={2.5} />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[10px] font-black text-criollo-muted uppercase tracking-widest mb-1">
-                El Servicio
-              </span>
-              <span className="text-sm font-bold text-criollo-text leading-tight font-sans">
-                Porciones abundantes y sabor a leña 100% casero.
-              </span>
+          <div className="flex items-start gap-4 p-6">
+            <Award className="size-6 text-gula-gold mt-1" strokeWidth={1.5} />
+            <div>
+              <p className="font-serif text-lg text-gula-text">La Promesa</p>
+              <p className="text-sm text-gula-muted mt-1 leading-relaxed">
+                Cocina artesanal de autor.
+                <br />
+                <span className="font-bold text-gula-text">
+                  Frescura y calidad garantizada.
+                </span>
+              </p>
             </div>
           </div>
-        </div>
-
-        {/* --- SELLO DE LA CASA --- */}
-        <div className="mt-4 flex flex-col items-center gap-3 mb-4">
-          <div className="flex items-center gap-2 text-criollo-text font-serif font-bold">
-            <CheckCircle2 className="size-5 text-criollo-primary" strokeWidth={2.5} />
-            <span>Tradición de Familia</span>
-          </div>
-          <p className="text-[10px] text-criollo-muted font-bold text-center px-6 uppercase tracking-[0.25em] leading-relaxed max-w-sm">
-            Cocinamos cada plato con el mismo fuego que entibia nuestra propia casa.
-          </p>
         </div>
       </div>
     </Section>

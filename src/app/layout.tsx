@@ -4,8 +4,8 @@ import "./globals.css";
 import { FooterSection } from "../components/layout/Footer";
 import ExampleMessage from "@/components/layout/Sections/Example";
 import { Navbar } from "@/components/layout/Nav";
-// Mantenemos lora e inter para la nueva identidad, quitamos roboto si ya no se usa
-import { lora, inter } from "@/lib/fonts"; 
+// Lora aportará el toque clásico/gourmet a los títulos, Inter la legibilidad general
+import { lora, inter } from "@/lib/fonts";
 import ReactLenis from "lenis/react";
 import PageLoader from "./PageLoader";
 import { cn } from "@/lib/utils";
@@ -13,32 +13,24 @@ import { CartProvider } from "@/context/CartContext";
 
 export const metadata: Metadata = {
   title: {
-    default: "TWH Demo",
+    default: "Santa Gula | Menú Digital",
     template: "%s | Tu Web Hoy",
   },
   description:
-    "Creamos páginas web simples y modernas para emprendedores. Ideales para mostrar tu negocio y empezar a vender.",
+    "Menú digital de Santa Gula Rotisería. Descubrí nuestras especialidades.",
   openGraph: {
-    title: "Tu web lista en días 🚀",
-    description:
-      "Páginas web modernas, claras y accesibles. Ideal para emprendedores y negocios chicos.",
+    title: "Santa Gula Rotisería",
+    description: "Explorá nuestro menú y hacé tu pedido fácilmente.",
     images: [
       {
         url: "/preview.jpg",
         width: 1200,
         height: 630,
-        alt: "Tu Web Hoy - Páginas web listas en días",
+        alt: "Santa Gula Rotisería",
       },
     ],
     type: "website",
     locale: "es_AR",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Tu web lista en días",
-    description:
-      "Webs modernas y accesibles para emprendedores. Lista para compartir y vender.",
-    images: ["/preview.jpg"],
   },
 };
 
@@ -50,17 +42,12 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      // Inyectamos las variables de Lora (serif) e Inter (sans)
-      className={cn(
-        inter.variable,
-        lora.variable,
-        "font-sans" // Forzamos que Inter sea la tipografía base de toda la web
-      )}
+      className={cn(inter.variable, lora.variable, "font-sans")}
       suppressHydrationWarning
     >
       <body
         className="
-          min-h-screen antialiased text-criollo-text bg-criollo-bg
+          min-h-screen antialiased text-gula-text bg-gula-bg
           overflow-x-hidden
           min-w-screen
           flex flex-col items-center
