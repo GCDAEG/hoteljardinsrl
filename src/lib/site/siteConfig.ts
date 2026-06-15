@@ -3,8 +3,8 @@
 export const siteConfig = {
   // 1. Visual Identity & Branding (Casual & Vibrante)
   brand: {
-    name: "Santa Gula",
-    suffix: "Rostiseria", 
+    name: "COMIDA HOY",
+    suffix: "Rotiseria", 
     logo: "/icon.png", // Mantén el path pero el estilo es el que diseñamos
     theme: "vibrant-fast-food", 
     colors: {
@@ -12,7 +12,10 @@ export const siteConfig = {
       secondary: "#FF6B00", // Naranja Fuego: Para precios y botones
       accent: "#FFB703",    // Amarillo Mostaza: Para badges y novedades
       background: "#FFFBF2" // Crema Cálido: Mucho más apetecible que el gris frío
-    }
+    },
+    city:"Ciudad",
+    province:"Provincia",
+    address:"Dirección del local",
   },
 
   // 2. Main Content (Hero Section con Actitud)

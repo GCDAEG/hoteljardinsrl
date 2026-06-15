@@ -6,16 +6,16 @@ import { Info } from "lucide-react";
 
 const ExampleMessage = () => {
   return (
-    <section className="bg-zinc-950 py-12 border-t border-white/5 w-full max-w-5xl">
+    <section className="bg-zinc-950 py-12 border-t border-white/5 w-full mx-auto flex justify-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 px-6"
+        className="w-full max-w-7xl flex flex-col md:flex-row items-center justify-between gap-8 px-4 sm:px-6 lg:px-8"
       >
         {/* Lado Izquierdo: Info de la Demo */}
-        <div className="flex items-start gap-4 max-w-md">
-          <div className="mt-1">
+        <div className="flex items-start gap-4 w-full md:max-w-md">
+          <div className="mt-1 shrink-0">
             <Info className="size-5 text-zinc-500" />
           </div>
           <div className="flex flex-col gap-1">
@@ -32,7 +32,7 @@ const ExampleMessage = () => {
         </div>
 
         {/* Lado Derecho: Tu Marca */}
-        <div className="flex flex-col items-center md:items-end gap-4">
+        <div className="flex flex-col items-center md:items-end gap-3 w-full md:w-auto text-center md:text-right">
           <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-600">
             Desarrollado por Gonzalo Carles de
           </span>
@@ -46,6 +46,7 @@ const ExampleMessage = () => {
               src="https://tuwebhoy-chi.vercel.app/twhlogo.svg"
               alt="tuwebhoy"
               fill
+              sizes="192px"
               className="object-contain"
             />
           </a>

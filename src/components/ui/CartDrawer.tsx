@@ -2,11 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import { useCart } from "@/context/CartContext";
-import { Check, Clock } from "lucide-react";
-import { cn } from "@/lib/utils";
+
 import BotonFlotante from "./CartDrawer/BotonFlotante";
 import DrawerPrincipal from "./CartDrawer/DrawerPrincipal";
 import ConfirmMessage from "./CartDrawer/ConfirmMessage";
+import { siteConfig } from "@/lib/site/siteConfig";
 
 export const CartDrawer = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,7 +48,7 @@ export const CartDrawer = () => {
       )
       .join("\n");
 
-    const header = `🛍️ *NUEVO PEDIDO - Santa Gula*`;
+    const header = `🛍️ *NUEVO PEDIDO - ${siteConfig.brand.name}*`;
     const deliveryInfo =
       deliveryType === "delivery"
         ? `🚚 *ENVÍO A DOMICILIO*\n📍 *DIRECCIÓN:* ${address}`

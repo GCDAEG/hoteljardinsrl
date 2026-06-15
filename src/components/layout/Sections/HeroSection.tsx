@@ -1,8 +1,10 @@
+// src/components/menu/HeroSection.tsx
 "use client";
 import React from "react";
 import Image from "next/image";
-import { ShoppingBag, ChevronDown, Award } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { useLenis } from "lenis/react";
+import { siteConfig } from "@/lib/site/siteConfig";
 
 const HeroSection = () => {
   const lenis = useLenis();
@@ -10,74 +12,72 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative w-full min-h-[100vh] md:min-h-[85vh] flex flex-col justify-end bg-gula-bg overflow-hidden"
+      className="relative w-full h-[55vh] min-h-[420px] md:min-h-[500px] lg:h-[65vh] xl:h-[70vh] max-h-[750px] flex flex-col justify-end bg-neutral-900 overflow-hidden border-b border-criollo-border mx-auto"
     >
-      {/* --- CONTENEDOR DE LA IMAGEN DE FONDO INMERSIVA --- */}
-      <div className="absolute inset-0 w-full h-full bg-stone-950">
+      {/* Fondo inmersivo Premium */}
+      <div className="absolute inset-0 w-full h-full">
         <Image
-          src="https://i.postimg.cc/c1wm23H0/LVXVs.jpg"
-          alt="Santa Gula Rotisería"
+          src={
+            siteConfig?.hero?.bgImage ||
+            "https://i.postimg.cc/c1wm23H0/LVXVs.jpg"
+          }
+          alt={siteConfig?.brand.name || "Restaurante"}
           fill
-          className="object-cover object-center opacity-70 scale-105"
+          className="object-cover object-center opacity-85 transition-transform duration-700 hover:scale-[1.02]"
           priority
         />
-        {/* Máscara de degradado hiper-elegante: se oscurece abajo para dar contraste a los textos blancos */}
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/50 to-stone-950/20" />
+        {/* Degradado premium sofisticado para blanco/neutro mobile first */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#18181B]/95 via-[#18181B]/50 to-transparent md:bg-gradient-to-r md:from-[#18181B]/95 md:via-[#18181B]/70 md:to-transparent" />
       </div>
 
-      {/* --- CONTENIDO PRINCIPAL: ESTRUCTURA VERTICAL SMARTPHONE --- */}
-      {/* Todo el espacio empuja el contenido hacia abajo (`justify-end`) para que sea accesible al pulgar */}
-      <div className="relative z-10 w-full max-w-xl lg:max-w-5-xl mx-auto px-6 pb-12 pt-24 md:px-12 md:pb-16 flex flex-col gap-6 text-white items-center text-center md:items-start md:text-left">
-        {/* Sello de Distinción Minimalista */}
-        {/* <div className="inline-flex items-center gap-2 text-gula-gold tracking-[0.2em] font-sans font-black text-[10px] uppercase bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full border border-gula-gold/20">
-          <Award className="size-3.5" strokeWidth={2.5} />
-          <span>Est. 2026 • Gourmet Clásico</span>
-        </div> */}
-
-        {/* Bloque de Títulos de Alto Impacto */}
-        <div className="space-y-3 w-full lg:flex lg:flex-col lg:justify-center lg:text-center">
-          <div className="flex items-center justify-center md:justify-center gap-3 ">
-            <img src="/icon.png" alt="Santa Gula Icon" className="size-1/2" />
+      {/* Contenedor principal estructurado */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-6 md:pb-12 lg:pb-16 xl:pb-20 flex flex-col md:flex-row md:items-end md:justify-between gap-6 lg:gap-12">
+        <div className="flex-1">
+          {/* Badge de Horario / Dirección */}
+          <div className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 mb-2 md:mb-4">
+            <Sparkles className="size-3 text-white fill-white/20" />
+            <span className="text-[10px] sm:text-xs font-bold text-white uppercase tracking-wider">
+              Abierto ahora • {siteConfig?.brand.address || "Delivery App"}
+            </span>
           </div>
-          <span className="text-gula-gold font-serif italic text-lg block tracking-wide">
-            Bienvenidos a la tentación
-          </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl leading-[1.1] tracking-tight font-lora">
-            <span className="font-normal">Santa Gula</span> <br />
-            <span className="italic text-gula-gold font-lora ">Rotisería.</span>
+
+          {/* Nombre y Título Comercial */}
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            <span className="block text-[11px] sm:text-xs font-semibold tracking-widest uppercase text-neutral-300 mb-0.5 md:mb-1">
+              {siteConfig?.brand.name || "Premium Delivery"}
+            </span>
+            La cocina que deseas, <br className="hidden md:inline" /> directo a
+            tu mesa.
           </h1>
 
-          {/* Línea divisoria centralizada en móvil, alineada a la izquierda en tablets/desktop */}
-          <div className="w-full flex justify-start lg:justify-center">
-            <div className="w-12 h-[1px] bg-gula-gold/50 mx-auto md:mx-0 my-4" />
-          </div>
-
-          <p className="text-stone-300 font-sans font-medium text-sm sm:text-base leading-relaxed max-w-sm md:max-w-md">
-            Platos artesanales elaborados con precisión técnica, materias primas
-            selectas y ese toque distinguido que redefine la cocina tradicional.
+          {/* Descripción Corta */}
+          <p className="text-neutral-300 text-xs sm:text-sm mt-1.5 md:mt-3 max-w-[280px] sm:max-w-sm md:max-w-md leading-relaxed font-medium">
+            Elige tus favoritos y arma tu pedido ideal en simples pasos. Premium
+            y directo.
           </p>
         </div>
 
-        {/* --- ACCIÓN PRINCIPAL (Thumb-Zone Perfect) --- */}
-        <div className="w-full pt-2 flex flex-col items-center gap-4">
+        {/* Acción Principal */}
+        <div className="w-full md:w-auto md:min-w-[320px] lg:min-w-[360px] flex flex-col gap-2.5 pt-1 md:pt-0">
           <button
             onClick={() => lenis?.scrollTo("#catalog", { offset: -80 })}
-            className="group relative w-full sm:w-auto min-w-[240px] flex items-center justify-center gap-3 bg-gula-primary text-white py-4 px-8 rounded-xl font-lora font-bold tracking-wider text-sm shadow-xl shadow-gula-primary/20 active:scale-[0.98] md:active:scale-100 md:hover:bg-gula-primary/95 transition-all duration-200"
+            className="group w-full h-12 flex items-center justify-between bg-white text-[#18181B] px-5 rounded-2xl font-bold tracking-tight text-sm shadow-sm transition-all active:scale-[0.99]"
           >
-            <ShoppingBag className="size-4" strokeWidth={2.5} />
-            <span>VER LA CARTA</span>
-            {/* Detalle premium visual */}
-            <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gula-gold transition-all duration-300 group-hover:w-full" />
+            <span>COMENZAR PEDIDO</span>
+            <div className="bg-neutral-100 p-1.5 rounded-xl text-[#18181B] transition-transform group-hover:translate-x-0.5">
+              <ArrowRight className="size-4" />
+            </div>
           </button>
 
-          <span className="text-[11px] font-bold text-stone-400 uppercase tracking-widest">
-            Chajarí, Entre Ríos
-          </span>
-        </div>
-
-        {/* Micro-indicador táctil inferior */}
-        <div className="pt-4 animate-bounce opacity-40 w-full flex justify-center">
-          <ChevronDown className="size-5" />
+          {/* Opciones de Entrega Disponibles */}
+          <div className="flex gap-4 px-1 text-neutral-400 md:justify-start">
+            <span className="text-[9px] sm:text-xs font-bold uppercase tracking-wider flex items-center gap-1 text-white">
+              <span className="size-1 bg-emerald-500 rounded-full" /> Retiro
+            </span>
+            <span className="text-[9px] sm:text-xs font-bold uppercase tracking-wider flex items-center gap-1 text-white">
+              <span className="size-1 bg-emerald-500 rounded-full" /> Delivery
+            </span>
+          </div>
         </div>
       </div>
     </section>
