@@ -1,42 +1,48 @@
 @import "tailwindcss";
 
 @theme {
-  /* Registramos las fuentes de Next.js */
-  --font-inter: var(--font-inter);
-  --font-lora: var(--font-lora);
+  /* Registramos las fuentes del Hotel Jardín */
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-cursive: var(--font-sacramento);
 
-  /* Registramos las variables del nuevo estilo Santa Gula */
-  --color-gula-bg: hsl(var(--gula-bg));
-  --color-gula-text: hsl(var(--gula-text));
-  --color-gula-muted: hsl(var(--gula-muted));
-  --color-gula-primary: hsl(var(--gula-primary));
-  --color-gula-gold: hsl(var(--gula-gold));
-  --color-gula-border: hsl(var(--gula-border));
+  /* Registramos las variables del nuevo estilo Hotel Jardín */
+  --color-jardin-bg: hsl(var(--jardin-bg));
+  --color-jardin-bg-alt: hsl(var(--jardin-bg-alt));
+  --color-jardin-text: hsl(var(--jardin-text));
+  --color-jardin-muted: hsl(var(--jardin-muted));
+  --color-jardin-primary: hsl(var(--jardin-primary));
+  --color-jardin-primary-hover: hsl(var(--jardin-primary-hover));
+  --color-jardin-border: hsl(var(--jardin-border));
+  --color-jardin-whatsapp: hsl(var(--jardin-whatsapp));
 }
 
 @layer base {
   :root {
-    /* Fondo: Un off-white muy limpio y gourmet que resalta la elegancia */
-    --gula-bg: 40 20% 98%;          /* #FBFBF9 */
+    /* Fondo principal: Blanco puro para máxima sensación de limpieza */
+    --jardin-bg: 0 0% 100%;             /* #FFFFFF */
     
-    /* Textos: Gris piedra muy oscuro, casi negro para contraste premium */
-    --gula-text: 24 25% 12%;        /* #1F1916 */
-    --gula-muted: 24 12% 42%;       /* #756862 */
+    /* Fondo alternativo: Gris piedra/oliva sutil y muy claro para separar secciones */
+    --jardin-bg-alt: 80 10% 97%;        /* #F7F8F6 */
     
-    /* Primario: El borravino / magenta profundo del logo de Santa Gula */
-    --gula-primary: 340 66% 33%;    /* #8B1C3F aprox */
+    /* Textos: Gris piedra oscuro, suave a la vista para evitar el negro puro estridente */
+    --jardin-text: 24 10% 16%;          /* #2A2725 */
+    --jardin-muted: 24 8% 46%;          /* #787470 */
     
-    /* Acentos: El dorado del gorro de chef y los ribetes */
-    --gula-gold: 40 50% 55%;        /* #C5A059 aprox */
+    /* Primario: El verde bosque profundo que evoca naturaleza y serenidad */
+    --jardin-primary: 161 33% 16%;      /* #1c352d */
+    --jardin-primary-hover: 161 33% 12%;/* #152822 */
     
-    /* Bordes: Sutiles, para separar tarjetas sin ensuciar el diseño */
-    --gula-border: 40 20% 88%;      /* #EAE3D5 */
+    /* Bordes sutiles y naturales */
+    --jardin-border: 80 10% 92%;        /* #ECEEEA */
+
+    /* Verde de conversión para botones de WhatsApp */
+    --jardin-whatsapp: 142 70% 45%;     /* #25D366 simplificado */
   }
 
   body {
-    /* Aplicamos la fuente Inter por defecto a todo el cuerpo */
-    background-color: var(--color-gula-bg);
-    color: var(--color-gula-text);
+    background-color: var(--color-jardin-bg);
+    color: var(--color-jardin-text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

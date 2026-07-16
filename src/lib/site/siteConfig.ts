@@ -3,8 +3,8 @@
 export const siteConfig = {
   // 1. Visual Identity & Branding (Casual & Vibrante)
   brand: {
-    name: "COMIDA HOY",
-    suffix: "Rotiseria", 
+    name: "CAR HOY",
+    suffix: "Repuestos", 
     logo: "/icon.png", // Mantén el path pero el estilo es el que diseñamos
     theme: "vibrant-fast-food", 
     colors: {

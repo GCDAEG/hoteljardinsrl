@@ -1,94 +1,97 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-import { BsWhatsapp } from "react-icons/bs";
-import { Zap } from "lucide-react";
 
 interface CTAButtonBaseProps {
   ctaRef?: React.RefObject<HTMLDivElement | null>;
   className?: string;
-  buttonClassName?: string;
   href?: string;
 }
 
-// Variante 1: Hero (Con el diseño principal de "Lanzamiento")
+/**
+ * Botón Principal de Altísima Elegancia para el Hero o Secciones Clave
+ */
 export function HeroCTAButton({
   ctaRef,
   className = "",
-  buttonClassName = "",
-  href = "https://wa.me/5493451234567",
+  href = "https://wa.me/5493444443617?text=Hola!%20Me%20gustaría%20consultar%20disponibilidad%20en%20Hotel%20Jardín.",
 }: CTAButtonBaseProps) {
   return (
-    <div ref={ctaRef} className={`relative group ${className}`}>
-      {/* Efecto de brillo exterior (Glow) */}
-      <div className="absolute -inset-1 bg-primary/40 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
-
-      <CtaButtonContent
+    <div
+      ref={ctaRef}
+      className={`relative flex flex-col items-center gap-3 w-full sm:w-auto ${className}`}
+    >
+      {/* Botón Principal (56px de alto, esquinas infinitas, sombra sutil) */}
+      <a
         href={href}
-        label="Adquirir ahora"
-        className={`bg-primary text-black font-black uppercase tracking-widest text-[11px] sm:text-xs rounded-xl shadow-[0_0_20px_rgba(var(--primary),0.3)] ${buttonClassName}`}
-      />
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group inline-flex items-center justify-center gap-3
+          h-[56px] px-8 w-full sm:w-auto
+          bg-[#1c352d] hover:bg-[#152822] 
+          text-white font-sans font-semibold text-base
+          rounded-[9999px] shadow-[0_4px_18px_rgba(28,53,45,0.08)] hover:shadow-[0_6px_22px_rgba(28,53,45,0.12)]
+          transition-all duration-250 ease-in-out
+          active:scale-[0.99]"
+      >
+        {/* Isotipo ligeramente más grande que el texto */}
+        <svg
+          className="w-5.5 h-5.5 fill-current text-[#25D366] transition-transform duration-250 group-hover:scale-105"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.66.986 3.294 1.489 5.34 1.491 5.482 0 9.94-4.46 9.943-9.94.001-2.654-1.02-5.152-2.877-7.01C17.19 1.83 14.695.808 12.01.808c-5.486 0-9.945 4.46-9.949 9.943-.001 2.014.501 3.66 1.498 5.32l-.991 3.616 3.71-.977z" />
+        </svg>
+        <span className="font-medium tracking-normal select-none">
+          Consultar disponibilidad
+        </span>
+      </a>
+
+      {/* Línea divisoria elegante hacia WhatsApp */}
+      <div className="flex items-center justify-center w-full max-w-[280px] gap-3 px-2 select-none pointer-events-none">
+        <span className="h-px bg-stone-200/60 flex-1" />
+        <span className="text-[11px] font-medium tracking-[0.1em] text-stone-400 uppercase">
+          WhatsApp
+        </span>
+        <span className="h-px bg-stone-200/60 flex-1" />
+      </div>
     </div>
   );
 }
 
-// Variante 2: Simple (Para las cards del catálogo)
+/**
+ * Variante Simple de Alta Gama (Para habitaciones y tarjetas)
+ */
 export function SimpleCTAButton({
   className = "",
-  href = "https://wa.me/5493451234567",
+  href = "https://wa.me/5493444443617?text=Hola!%20Me%20gustaría%20consultar%20tarifas%20para%20una%20habitación.",
 }: {
   className?: string;
   href?: string;
 }) {
   return (
-    <CtaButtonContent
-      href={href}
-      label="Consultar Stock"
-      className={`bg-card border border-white/10 text-white hover:border-primary/50 text-[10px] uppercase tracking-wider rounded-lg py-3 px-4 ${className}`}
-    />
-  );
-}
-
-// Componente Core: El motor del botón
-function CtaButtonContent({
-  href,
-  label,
-  className = "",
-}: {
-  href: string;
-  label: string;
-  className?: string;
-}) {
-  return (
-    <motion.a
+    <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`
-        relative overflow-hidden
-        inline-flex items-center justify-center gap-3
-        px-8 py-5 transition-all duration-300
-        focus:outline-none focus:ring-2 focus:ring-primary/50
-        ${className}
-      `}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
+      className={`group inline-flex items-center justify-center gap-3
+        h-[52px] px-6 w-full
+        bg-white hover:bg-[#1c352d] 
+        border border-stone-200 hover:border-transparent
+        text-stone-700 hover:text-white font-sans font-medium text-sm
+        rounded-[9999px] shadow-[0_2px_10px_rgba(0,0,0,0.01)] hover:shadow-[0_4px_16px_rgba(28,53,45,0.06)]
+        transition-all duration-250 ease-in-out
+        active:scale-[0.99]
+        ${className}`}
     >
-      {/* Reflejo de luz pasando (Shine effect) */}
-      <div className="absolute inset-0 w-full h-full bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
-
-      <BsWhatsapp className="text-lg" />
-      <span className="relative z-10">{label}</span>
-      <Zap className="size-3 fill-current opacity-50 group-hover:opacity-100 group-hover:animate-pulse" />
-
-      <style jsx>{`
-        @keyframes shimmer {
-          100% {
-            transform: translateX(100%);
-          }
-        }
-      `}</style>
-    </motion.a>
+      <svg
+        className="w-4.5 h-4.5 fill-current text-[#25D366] group-hover:text-white transition-colors duration-250"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.66.986 3.294 1.489 5.34 1.491 5.482 0 9.94-4.46 9.943-9.94.001-2.654-1.02-5.152-2.877-7.01C17.19 1.83 14.695.808 12.01.808c-5.486 0-9.945 4.46-9.949 9.943-.001 2.014.501 3.66 1.498 5.32l-.991 3.616 3.71-.977z" />
+      </svg>
+      <span className="tracking-normal">Consultar disponibilidad</span>
+    </a>
   );
 }

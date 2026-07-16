@@ -12,7 +12,27 @@ export const sections: NavSection[] = [
     label: "Inicio",
   },
   {
-    id: "catalog", // Coincide con el id del componente HowItWorks
-    label: "Menú",
+    id: "services", // Coincide con el id del componente HowItWorks
+    label: "Servicios",
+  },
+  {
+    id: "rooms",
+    label: "Habitaciones",
+  },
+  {
+    id: "gallery",
+    label: "Galería",
+  },
+  {
+    id: "about",
+    label: "Nuestra Historia",
+  },
+  {
+    id: "location",
+    label: "Ubicación",
+  },
+  {
+    id: "testimonials",
+    label: "Opiniones",
   },
 ];

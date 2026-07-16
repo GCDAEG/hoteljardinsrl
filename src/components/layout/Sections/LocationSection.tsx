@@ -1,116 +1,103 @@
-// src/components/layout/LocationSection.tsx
 "use client";
-import React from "react";
-import Section from "@/components/layout/Section";
-import { MapPin, Clock, Navigation, Award } from "lucide-react";
-import { siteConfig } from "@/lib/site/siteConfig";
 
-export default function LocationSection() {
-  const ADDRESS = siteConfig?.brand.address || "Doctor Planas 2551";
-  const CITY = "Chajarí, Entre Ríos";
-  const MAPS_URL = siteConfig?.features?.whatsappNumber
-    ? `https://wa.me/${siteConfig.features.whatsappNumber}`
-    : "https://maps.app.goo.gl/xerrVr6oTSyKxDfw5";
+import React from "react";
+import { MapPin, Navigation, Phone } from "lucide-react";
+
+const LocationSection = () => {
+  // Reemplazar por la dirección física exacta del Hotel Jardín en Gualeguay
+  const address = "Bartolomé Mitre 168, E2840 Gualeguay, Entre Ríos";
+  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Hotel Jardin Gualeguay Entre Rios")}`;
 
   return (
-    <Section
-      id="ubicacion"
-      className="bg-[#FAFAFA] pt-8 pb-20 flex flex-col items-center w-full overflow-hidden mx-auto"
-      height="content"
+    <section
+      id="location"
+      className="w-full bg-white py-24 md:py-32 flex justify-center border-b border-stone-50"
     >
-      <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8 space-y-6">
-        {/* --- ENCABEZADO --- */}
-        <div className="text-left px-1">
-          <span className="text-[10px] sm:text-xs font-bold text-[#71717A] uppercase tracking-wider">
-            Visítanos
+      <div className="w-full max-w-[1200px] px-6 flex flex-col items-center">
+        {/* Encabezado de la Sección */}
+        <div className="max-w-2xl text-center mb-16 md:mb-20">
+          <span className="font-sans text-[10px] tracking-[0.3em] font-bold text-[#1c352d]/60 uppercase mb-3 block">
+            Ubicación
           </span>
-          <h2 className="text-xl sm:text-2xl font-extrabold text-[#18181B] tracking-tight mt-0.5">
-            Nuestro Lugar
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl tracking-tight text-[#1c352d] leading-tight">
+            En el corazón de Gualeguay
           </h2>
+          <p className="font-sans text-stone-500 text-sm md:text-base mt-4 max-w-lg mx-auto leading-relaxed">
+            Ubicado en una zona residencial y tranquila, con accesibilidad
+            directa a los puntos de interés de la ciudad, ideal tanto para
+            viajes de descanso como de trabajo.
+          </p>
         </div>
 
-        {/* --- Layout de dos columnas para pantallas grandes --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 items-start">
-          {/* --- MAPA & UBICACIÓN --- */}
-          <div className="bg-white rounded-3xl border border-criollo-border shadow-[0_2px_8px_rgba(0,0,0,0.01)] overflow-hidden h-full flex flex-col justify-between">
-            {/* Mapa minimalista */}
-            <div
-              onClick={() => window.open(MAPS_URL, "_blank")}
-              className="relative aspect-[21/10] md:aspect-[16/8] w-full bg-neutral-100 cursor-pointer group border-b border-criollo-border"
-            >
-              <div className="absolute inset-0 flex items-center justify-center bg-neutral-50">
-                <span className="text-[11px] uppercase tracking-tight text-[#71717A] font-bold bg-white px-3 py-1.5 rounded-xl border border-criollo-border shadow-sm group-hover:bg-neutral-50 transition-colors">
-                  Ver en el mapa
-                </span>
-              </div>
-            </div>
-
-            {/* Información de contacto */}
-            <div className="p-4 flex flex-col gap-4 flex-1 justify-between">
-              <div className="flex items-center gap-3">
-                <div className="bg-neutral-50 p-2.5 rounded-2xl text-[#18181B] border border-criollo-border shrink-0">
-                  <MapPin className="size-5" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-sm font-bold text-[#18181B] tracking-tight truncate">
-                    {ADDRESS}
-                  </p>
-                  <p className="text-[11px] text-[#71717A] font-medium tracking-tight mt-0.5">
-                    {CITY}
-                  </p>
-                </div>
-              </div>
-
-              <button
-                onClick={() => window.open(MAPS_URL, "_blank")}
-                className="flex items-center justify-center gap-2 h-11 w-full bg-[#18181B] text-white rounded-2xl font-semibold text-xs tracking-tight shadow-sm hover:bg-[#18181B]/95 transition-all active:scale-[0.99]"
-              >
-                CÓMO LLEGAR <Navigation className="size-3.5 fill-white" />
-              </button>
+        {/* Grilla: 1 columna en móvil, 2 en desktop para mantener el balance visual */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 w-full items-center">
+          {/* Columna Izquierda: Mapa elegante enmarcado (No gigante) */}
+          <div className="lg:col-span-7 w-full">
+            <div className="relative aspect-video lg:aspect-[16/10] w-full rounded-2xl overflow-hidden border border-stone-100 shadow-[0_4px_30px_rgba(0,0,0,0.02)] bg-stone-50">
+              {/* iframe del mapa interactivo de Google Maps */}
+              <iframe
+                title="Mapa de ubicación de Hotel Jardín"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d208.77875307818312!2d-59.3153267!3d-33.1495472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b09c9e94d25b89%3A0x62260bc02b1e1966!2sHotel%20Jard%C3%ADn!5e0!3m2!1ses-419!2sar!4v1784231793491!5m2!1ses-419!2sar"
+                className="w-full h-full border-0 opacity-90 contrast-105"
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
 
-          {/* --- DETALLES DE SERVICIO --- */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-3 h-full">
-            <div className="flex items-start gap-3 p-4 bg-white border border-criollo-border rounded-3xl shadow-[0_2px_8px_rgba(0,0,0,0.01)] h-full">
-              <div className="bg-neutral-50 p-2 rounded-xl border border-neutral-100 shrink-0 text-[#18181B]">
-                <Clock className="size-4" />
+          {/* Columna Derecha: Tarjeta de información y botones */}
+          <div className="lg:col-span-5 flex flex-col items-start justify-center p-2 md:p-6">
+            <div className="flex items-start gap-4 mb-8">
+              <div className="p-3 bg-stone-50 text-[#1c352d] rounded-2xl border border-stone-100">
+                <MapPin className="w-6 h-6 stroke-[1.5]" />
               </div>
               <div>
-                <p className="font-bold text-xs sm:text-sm text-[#18181B] tracking-tight">
-                  Horarios de atención
-                </p>
-                <p className="text-[11px] sm:text-xs text-[#71717A] mt-1 leading-relaxed font-medium">
-                  Abierto todos los días
-                  <br />
-                  <span className="font-bold text-[#18181B]">
-                    {siteConfig?.features?.openingHours ||
-                      "11:30 - 14:30 | 19:30 - 23:30"}
-                  </span>
+                <h3 className="font-serif text-xl font-medium text-[#1c352d] mb-1">
+                  Dirección
+                </h3>
+                <p className="font-sans text-stone-500 text-sm md:text-base leading-relaxed">
+                  {address}
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-3 p-4 bg-white border border-criollo-border rounded-3xl shadow-[0_2px_8px_rgba(0,0,0,0.01)] h-full">
-              <div className="bg-neutral-50 p-2 rounded-xl border border-neutral-100 shrink-0 text-[#18181B]">
-                <Award className="size-4" />
-              </div>
-              <div>
-                <p className="font-bold text-xs sm:text-sm text-[#18181B] tracking-tight">
-                  La Promesa
-                </p>
-                <p className="text-[11px] sm:text-xs text-[#71717A] mt-1 leading-relaxed font-medium">
-                  Cocina artesanal de autor.
-                  <br />
-                  <span className="font-bold text-[#18181B]">
-                    Frescura y calidad garantizada.
-                  </span>
-                </p>
-              </div>
+            {/* Botón Principal Premium "Cómo llegar" (Altura 56px, rounded-full, sombra suave) */}
+            <a
+              href={googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                group flex items-center justify-center gap-3
+                h-[56px] px-8 w-full sm:w-auto
+                bg-[#1c352d] hover:bg-[#152822] 
+                text-white font-sans font-semibold text-base
+                rounded-[9999px] shadow-[0_4px_18px_rgba(28,53,45,0.08)] hover:shadow-[0_6px_22px_rgba(28,53,45,0.12)]
+                transition-all duration-250 ease-in-out
+                active:scale-[0.99]
+              "
+            >
+              <Navigation className="w-5 h-5 text-stone-200 transition-transform duration-250 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <span className="font-medium tracking-normal">Cómo llegar</span>
+            </a>
+
+            {/* Llamado discreto a WhatsApp abajo */}
+            <div className="mt-8 flex items-center gap-2 select-none">
+              <span className="w-2 h-2 rounded-full bg-[#25D366]" />
+              <a
+                href="https://wa.me/5493444443617?text=Hola!%20Estoy%20viajando%20al%20hotel%20y%20quería%20consultar%20indicaciones%20para%20ingresar."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-xs font-semibold text-stone-500 hover:text-[#1c352d] transition-colors"
+              >
+                ¿Necesitás indicaciones? Consultanos por WhatsApp
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </Section>
+    </section>
   );
-}
+};
+
+export default LocationSection;

@@ -1,10 +1,13 @@
-import ProductCatalog from "@/components/layout/Sections/ProductCatalog";
-import HeroSection from "../components/layout/Sections/HeroSection";
+import HeroSection from "../components/layout/Home/sections/HeroSection";
 
 import LocationSection from "@/components/layout/Sections/LocationSection";
-import { client } from "@/sanity/client";
+
 import { SanityDocument } from "next-sanity";
-import { CartDrawer } from "@/components/ui/CartDrawer";
+import ServicesSection from "@/components/layout/Home/sections/ServicesSection";
+import RoomsSection from "@/components/layout/Home/sections/RoomsSection";
+import GallerySection from "@/components/layout/Home/sections/GallerySection";
+import AboutSection from "@/components/layout/Home/sections/AboutSection";
+import TestimonialsSection from "@/components/layout/Home/Testimonials";
 // export const roboto = Roboto({
 //   subsets: ["latin"],
 //   display: "swap",
@@ -39,16 +42,15 @@ export default async function Home() {
   console.log("los posts", posts);
   return (
     <main
-      className={`min-h-screen w-full font-base max-w-2xl lg:max-w-5xl shadow-md overflow-x-hidden`}
+      className={`min-h-screen w-full font-base lg:max-w-6xl shadow-md overflow-x-hidden`}
     >
       <HeroSection />
-      <ProductCatalog posts={posts} />
-
+      <ServicesSection></ServicesSection>
+      <RoomsSection></RoomsSection>
+      <GallerySection></GallerySection>
+      <AboutSection></AboutSection>
       <LocationSection />
-
-      <CartDrawer />
-      {/* <Testimonials /> */}
-      {/* <WhatsAppChatInput /> */}
+      <TestimonialsSection></TestimonialsSection>
     </main>
   );
 }

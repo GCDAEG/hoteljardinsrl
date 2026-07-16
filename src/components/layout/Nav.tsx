@@ -26,11 +26,11 @@ export function Navbar() {
       layout
       ref={ref}
       className={cn(
-        "fixed h-20 top-0 z-[300] w-full transition-all  flex justify-center max-w-2xl lg:max-w-5xl ",
+        "sticky h-20 top-0 z-[300] w-full transition-all  flex justify-center max-w-2xl lg:max-w-6xl ",
       )}
     >
       {/* <Banner isScrolled={isScrolled} /> */}
-      {/* <DesktopMenu sections={sections} activeSection={activeSection} /> */}
+      <DesktopMenu sections={sections} activeSection={activeSection} />
       <MobileMenu sections={sections} activeSection={activeSection} />
     </motion.nav>
   );
