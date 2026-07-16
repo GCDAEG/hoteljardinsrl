@@ -37,7 +37,7 @@ const ExampleMessage = () => {
             Desarrollado por Gonzalo Carles de
           </span>
           <a
-            href="https://tuwebhoy-chi.vercel.app/"
+            href="https://www.tuwebhoysi.com.ar/"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative w-48 h-12 transition-all duration-300 hover:brightness-125"
