@@ -23,7 +23,7 @@ export const metadata: Metadata = {
       "Comodidad y tranquilidad para disfrutar tu estadía en Entre Ríos.",
     images: [
       {
-        url: "/preview.jpg", // Asegurate de tener una foto linda de la fachada o jardín acá
+        url: "/preview.jpeg", // Asegurate de tener una foto linda de la fachada o jardín acá
         width: 1200,
         height: 630,
         alt: "Hotel Jardín Gualeguay",
