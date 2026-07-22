@@ -14,7 +14,7 @@ interface CTAButtonBaseProps {
 export function HeroCTAButton({
   ctaRef,
   className = "",
-  href = "https://wa.me/5493444443617?text=Hola!%20Me%20gustaría%20consultar%20disponibilidad%20en%20Hotel%20Jardín.",
+  href = "https://wa.me/549123456789?text=Hola!%20Me%20gustaría%20consultar%20disponibilidad%20en%20Hotel%20Jardín.",
 }: CTAButtonBaseProps) {
   return (
     <div
@@ -64,7 +64,7 @@ export function HeroCTAButton({
  */
 export function SimpleCTAButton({
   className = "",
-  href = "https://wa.me/5493444443617?text=Hola!%20Me%20gustaría%20consultar%20tarifas%20para%20una%20habitación.",
+  href = "https://wa.me/549123456789?text=Hola!%20Me%20gustaría%20consultar%20tarifas%20para%20una%20habitación.",
 }: {
   className?: string;
   href?: string;

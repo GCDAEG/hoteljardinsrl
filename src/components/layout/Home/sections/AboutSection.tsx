@@ -2,8 +2,9 @@
 
 import React from "react";
 import { Play } from "lucide-react";
+import { siteConfig } from "@/lib/site/siteConfig";
 
-const INSTAGRAM_REEL = "https://www.instagram.com/reel/DGzUiyssIGJ/";
+// const INSTAGRAM_REEL = "https://www.instagram.com/reel/DGzUiyssIGJ/";
 
 const AboutSection = () => {
   return (
@@ -17,8 +18,8 @@ const AboutSection = () => {
           <div className="lg:col-span-5">
             <div className="relative overflow-hidden rounded-2xl border border-stone-200 shadow-sm group">
               <img
-                src="https://i.postimg.cc/xd0t02yd/Gemini-Generated-Image-rns8kfrns8kfrns8.png"
-                alt="Hotel Jardín"
+                src="https://i.postimg.cc/SR6gb8Vb/Gemini-Generated-Image-hoehm3hoehm3hoeh.png"
+                alt="Hotel ejemplo"
                 className="w-full aspect-[4/3] lg:aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105"
               />
 
@@ -27,8 +28,7 @@ const AboutSection = () => {
 
               {/* Botón Play */}
               <a
-                href={INSTAGRAM_REEL}
-                target="_blank"
+                href={"#"}
                 rel="noopener noreferrer"
                 className="absolute inset-0 flex items-center justify-center"
               >
@@ -46,24 +46,24 @@ const AboutSection = () => {
             </span>
 
             <h2 className="mt-4 text-4xl lg:text-5xl font-serif text-[#1c352d] leading-tight">
-              Más de 30 años
+              Más de 50 años
               <br />
               recibiendo huéspedes
               <br />
-              en Gualeguay
+              en {siteConfig.brand.city}
             </h2>
 
             <div className="mt-8 space-y-6 text-stone-600 leading-8 max-w-xl">
               <p>
-                Desde hace más de tres décadas, Hotel Jardín recibe a turistas,
-                familias y viajeros que buscan una estadía cómoda, una atención
-                cercana y una excelente ubicación dentro de la ciudad.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+                interdum vitae massa non convallis. Proin rhoncus tellus a ex
+                convallis, vitae varius mi feugiat.
               </p>
 
               <p>
-                Con el paso de los años seguimos creciendo, manteniendo el mismo
-                compromiso de brindar un lugar cálido donde cada huésped se
-                sienta como en casa.
+                Nullam id elementum magna. Sed id elit rhoncus, feugiat ligula
+                sed, accumsan diam. Vestibulum sed nisl vel lectus viverra
+                dictum at sit amet magna.
               </p>
             </div>
           </div>

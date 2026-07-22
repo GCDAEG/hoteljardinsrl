@@ -72,12 +72,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ sections, activeSection }) => {
           >
             <img
               src="/icon.png"
-              alt="Hotel Jardín SRL Icon"
+              alt="Hotel Ejemplo Icon"
               className="w-10 h-10 object-contain"
             />
             <div className="flex flex-col items-start justify-center -space-y-2.5">
               <span className="font-cursive text-4xl text-[#1c352d] leading-none antialiased">
-                Hotel Jardín
+                Hotel Ejemplo
               </span>
               <span className="text-[8px] tracking-[0.3em] font-sans font-bold text-stone-400 uppercase pl-0.5">
                 Gualeguay
@@ -119,7 +119,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ sections, activeSection }) => {
           <div className="flex items-center gap-2">
             <img
               src="/icon.png"
-              alt="Hotel Jardín Icon"
+              alt="Hotel Ejemplo Icon"
               className="w-8 h-8 object-contain"
             />
             <span className="font-cursive text-3xl text-[#1c352d] pt-1 leading-none">
@@ -176,7 +176,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ sections, activeSection }) => {
           </div>
 
           <a
-            href="https://wa.me/5493444443617?text=Hola!%20Me%20gustaría%20consultar%20disponibilidad."
+            href="https://wa.me/549123456789?text=Hola!%20Me%20gustaría%20consultar%20disponibilidad."
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 w-full py-4 px-6 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] text-white font-sans font-semibold text-sm active:scale-[0.98] transition-all duration-300 shadow-sm"

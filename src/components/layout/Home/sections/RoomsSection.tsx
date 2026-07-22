@@ -118,7 +118,7 @@ const RoomsSection = () => {
 
                 {/* Botón de Conversión Directo */}
                 <a
-                  href={`https://wa.me/5493444443617?text=${encodeURIComponent(room.whatsappText)}`}
+                  href={`https://wa.me/549123456789?text=${encodeURIComponent(room.whatsappText)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-3.5 px-6 bg-white hover:bg-[#1c352d] text-[#1c352d] hover:text-white border border-[#1c352d] hover:border-transparent font-sans font-semibold text-xs tracking-wider uppercase rounded-full shadow-sm text-center transition-all duration-300 active:scale-[0.98]"

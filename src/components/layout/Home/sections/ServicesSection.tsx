@@ -93,7 +93,7 @@ const ServicesSection = () => {
             return (
               <div
                 key={index}
-                className="group flex flex-col items-start p-5 md:p-8 bg-white border border-stone-100/80 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.015)] transition-all duration-250 hover:shadow-[0_8px_30px_rgba(28,53,45,0.035)]"
+                className="group flex flex-col items-start p-5 md:p-8 bg-white border border-stone-200/80 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.015)] transition-all duration-250 hover:shadow-[0_8px_30px_rgba(28,53,45,0.035)]"
               >
                 {/* Ícono contenedor sutil */}
                 <div className="p-2.5 md:p-3 bg-stone-50 text-[#1c352d] rounded-xl mb-4 md:mb-5 group-hover:bg-[#1c352d]/5 transition-colors duration-250">
@@ -117,7 +117,7 @@ const ServicesSection = () => {
         {/* Llamado a la acción sutil y elegante hacia WhatsApp */}
         <div className="mt-16 text-center">
           <a
-            href="https://wa.me/5493444443617?text=Hola!%20Me%20gustaría%20saber%20más%20sobre%20los%20servicios%20y%20tarifas."
+            href="https://wa.me/54123456789?text=Hola!%20Me%20gustaría%20saber%20más%20sobre%20los%20servicios%20y%20tarifas."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-stone-500 hover:text-[#1c352d] font-sans font-medium text-xs md:text-sm transition-colors group"

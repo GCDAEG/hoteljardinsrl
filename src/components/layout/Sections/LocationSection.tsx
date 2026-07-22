@@ -2,11 +2,12 @@
 
 import React from "react";
 import { MapPin, Navigation, Phone } from "lucide-react";
+import { siteConfig } from "@/lib/site/siteConfig";
 
 const LocationSection = () => {
-  // Reemplazar por la dirección física exacta del Hotel Jardín en Gualeguay
-  const address = "Bartolomé Mitre 168, E2840 Gualeguay, Entre Ríos";
-  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Hotel Jardin Gualeguay Entre Rios")}`;
+  // Reemplazar por la dirección física exacta del Hotel Ejemplo en Gualeguay
+  const address = siteConfig.brand.address;
+  const googleMapsUrl = `https://maps.app.goo.gl/qjxE2Ajz9TzzPBMq5`;
 
   return (
     <section
@@ -36,13 +37,11 @@ const LocationSection = () => {
             <div className="relative aspect-video lg:aspect-[16/10] w-full rounded-2xl overflow-hidden border border-stone-100 shadow-[0_4px_30px_rgba(0,0,0,0.02)] bg-stone-50">
               {/* iframe del mapa interactivo de Google Maps */}
               <iframe
-                title="Mapa de ubicación de Hotel Jardín"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d208.77875307818312!2d-59.3153267!3d-33.1495472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b09c9e94d25b89%3A0x62260bc02b1e1966!2sHotel%20Jard%C3%ADn!5e0!3m2!1ses-419!2sar!4v1784231793491!5m2!1ses-419!2sar"
-                className="w-full h-full border-0 opacity-90 contrast-105"
-                allowFullScreen={false}
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107066.69283230645!2d-58.63100766646931!3d-33.00814771676478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95baa828f3333543%3A0xa95f93d6a79497c1!2zR3VhbGVndWF5Y2jDuiwgRW50cmUgUsOtb3M!5e0!3m2!1ses-419!2sar!4v1784751167099!5m2!1ses-419!2sar"
+                width="600"
+                height="450"
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+              ></iframe>
             </div>
           </div>
 
@@ -85,7 +84,7 @@ const LocationSection = () => {
             <div className="mt-8 flex items-center gap-2 select-none">
               <span className="w-2 h-2 rounded-full bg-[#25D366]" />
               <a
-                href="https://wa.me/5493444443617?text=Hola!%20Estoy%20viajando%20al%20hotel%20y%20quería%20consultar%20indicaciones%20para%20ingresar."
+                href="https://wa.me/549123456789?text=Hola!%20Estoy%20viajando%20al%20hotel%20y%20quería%20consultar%20indicaciones%20para%20ingresar."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-sans text-xs font-semibold text-stone-500 hover:text-[#1c352d] transition-colors"

@@ -4,24 +4,32 @@ import React from "react";
 
 const galleryImages = [
   {
-    url: "https://i.postimg.cc/QCpXk1Bp/Gemini-Generated-Image-dgm969dgm969dgm9.png",
-    alt: "Parque interior y senderos del hotel",
+    url: "https://images.unsplash.com/photo-1655516433028-9e0e1599cf8b?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "Imagen de ejemplo",
   },
   {
-    url: "https://instagram.fros9-2.fna.fbcdn.net/v/t51.82787-15/654227798_18105750028856345_8301513828462470211_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&ig_cache_key=MjY3NDQ4MDQ3ODg3NzI4MjMyNg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQxNS5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=BQpIN80a39oQ7kNvwGlaIlD&_nc_oc=AdqyvxMeWPzxFyZEG7Fzo8PEF7sI0KTu5Yo2xsqZgXwM4UfPLi6N1-EDG3hL--9itlY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fros9-2.fna&_nc_gid=txR3TPmpz563F7u-mWj7sA&_nc_ss=7a22e&oh=00_AQBhaL1dHIOEgeWfeGUxDd6ExY8tRRA5BTjOqE2YEgybjw&oe=6A5EF6DD",
-    alt: "Parking del Hotel Jardín.",
+    url: "https://images.unsplash.com/photo-1585418694458-dc80a5c20294?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "Interior del hotel",
   },
   {
-    url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/87/cf/fa/hotel-jardin.jpg?w=1100&h=-1&s=1",
-    alt: "Frente o espacio común de Hotel Jardín",
+    url: "https://images.unsplash.com/photo-1677129667171-92abd8740fa3?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "Imagen de ejemplo",
   },
   {
-    url: "https://i.postimg.cc/hj1yLGDh/instagram-1784228741378.jpg",
-    alt: "Vista aérea del Hotel Jardín y sus alrededores con abundante naturaleza",
+    url: "https://images.unsplash.com/photo-1731336478850-6bce7235e320?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "Imagen de ejemplo",
   },
   {
-    url: "https://instagram.fros9-2.fna.fbcdn.net/v/t51.82787-15/619829970_18069892109626303_9172318867673879539_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&ig_cache_key=MjkyODE3MzY0OTQ2NzgwOTg5NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=uL6WRFqpMTcQ7kNvwEvLHUN&_nc_oc=AdruS0O3sppUhM_6iYzYncRKFdNPmHrmlFJdgBjj4ZWkrYqwrWROabkgYpePay37Tjs&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fros9-2.fna&_nc_gid=EcV4dvrsAChx4eQxIoTvrQ&_nc_ss=7a22e&oh=00_AQDHjVdqBHZmmC9wmmK7xDw196ggEUMWWCCrn2vpETzfEQ&oe=6A5EFD34",
-    alt: "Vista aérea del Hotel Jardín y sus alrededores con abundante naturaleza",
+    url: "https://images.unsplash.com/photo-1743592889729-d8a92388412e?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "Imagen de ejemplo",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1775866914882-9f0d58aa3372?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "Imagen de ejemplo",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1571930884060-d8f6b9cb05f2?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "Imagen de ejemplo",
   },
 ];
 
@@ -66,7 +74,7 @@ const GallerySection = () => {
         {/* CTA Sutil de Galería hacia WhatsApp */}
         <div className="mt-16 text-center">
           <a
-            href="https://www.instagram.com/hoteljardingualeguay"
+            href="https://www.instagram.com/tuwebhoysi"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-stone-200 hover:border-[#1c352d]/30 bg-stone-50/50 hover:bg-[#1c352d]/5 text-stone-600 hover:text-[#1c352d] font-sans font-medium text-xs tracking-wider uppercase transition-all duration-300"

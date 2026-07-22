@@ -6,6 +6,7 @@ import { Instagram, Facebook, MapPin, Phone, ArrowUp } from "lucide-react";
 import { useLenis } from "lenis/react";
 import { BsInstagram } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
+import { siteConfig } from "@/lib/site/siteConfig";
 
 export function FooterSection() {
   const lenis = useLenis();
@@ -27,15 +28,15 @@ export function FooterSection() {
             >
               <img
                 src="/icon.png"
-                alt="Hotel Jardín Icono"
+                alt="Hotel Ejemplo Icono"
                 className="size-14 object-contain"
               />
               <div className="flex flex-col items-start justify-center -space-y-2.5  select-none">
                 <span className="font-cursive text-4xl text-[#1c352d] leading-none antialiased">
-                  Hotel Jardín
+                  {siteConfig.brand.name}
                 </span>
                 <span className="text-[8px] tracking-[0.3em] font-sans font-bold text-stone-400 uppercase pl-0.5">
-                  Gualeguay
+                  {siteConfig.brand.city}
                 </span>
               </div>
             </div>
@@ -55,7 +56,7 @@ export function FooterSection() {
 
             <div className="flex flex-col gap-3 text-sm text-stone-600">
               <a
-                href="https://maps.google.com/?q=Hotel+Jardin+Gualeguay"
+                href="https://maps.google.com/?q=Gualeguaychú"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 hover:text-[#1c352d] transition-colors group"
@@ -63,11 +64,10 @@ export function FooterSection() {
                 <div className="p-2 bg-white rounded-xl border border-stone-100 shadow-xs group-hover:bg-[#1c352d]/5 transition-colors">
                   <MapPin className="w-4 h-4 text-[#1c352d]" />
                 </div>
-                <span>Gualeguay, Entre Ríos, Argentina</span>
+                <span>{siteConfig.brand.address}</span>
               </a>
 
               <a
-                href="https://wa.me/5493444443617?text=Hola!%20Me%20gustaría%20consultar%20disponibilidad."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 hover:text-[#1c352d] transition-colors group"
@@ -75,7 +75,7 @@ export function FooterSection() {
                 <div className="p-2 bg-white rounded-xl border border-stone-100 shadow-xs group-hover:bg-[#1c352d]/5 transition-colors">
                   <Phone className="w-4 h-4 text-[#1c352d]" />
                 </div>
-                <span>+54 9 3444 44-3617</span>
+                <span>+54 9 123456789</span>
               </a>
             </div>
           </div>
@@ -88,7 +88,6 @@ export function FooterSection() {
 
             <div className="flex items-center gap-3">
               <a
-                href="https://www.instagram.com/hoteljardingualeguay"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-white hover:bg-[#1c352d] text-stone-600 hover:text-white rounded-full border border-stone-100 shadow-xs transition-all duration-300"
@@ -98,7 +97,6 @@ export function FooterSection() {
               </a>
 
               <a
-                href="https://www.facebook.com/hoteljardinsrlgualeguay"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-white hover:bg-[#1c352d] text-stone-600 hover:text-white rounded-full border border-stone-100 shadow-xs transition-all duration-300"
@@ -114,15 +112,15 @@ export function FooterSection() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-4 text-xs text-stone-400 text-center sm:text-left">
             <span>
-              &copy; {new Date().getFullYear()} Hotel Jardín. Todos los derechos
-              reservados.
+              &copy; {new Date().getFullYear()} Hotel Anturio. Todos los
+              derechos reservados.
             </span>
             <span className="hidden sm:inline text-stone-200">|</span>
             <a
-              href="https://hoteljardinsrl.com.ar"
+              href="https://hotelanturio.noexiste.com"
               className="hover:text-[#1c352d] transition-colors font-medium"
             >
-              hoteljardinsrl.com.ar
+              hotelanturio.noexiste.com
             </a>
           </div>
 

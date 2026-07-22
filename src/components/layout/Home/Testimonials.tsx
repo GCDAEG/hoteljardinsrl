@@ -33,7 +33,7 @@ const testimonials = [
     author: "Elena Rossi",
     role: "Turista",
     rating: 5,
-    text: "La limpieza es impecable y las camas súper confortables. El patio interno ajardinado te hace olvidar que estás a un paso del centro. Muy recomendable.",
+    text: "La limpieza es impecable y las camas súper confortables. El patio interno te hace olvidar que estás a un paso del centro. Muy recomendable.",
   },
 ];
 
@@ -112,7 +112,7 @@ const TestimonialsSection = () => {
         {/* Enlace Sutil a Google Maps */}
         <div className="mt-14 text-center">
           <a
-            href="https://maps.google.com/?q=Hotel+Jardin+Gualeguay"
+            href="https://maps.google.com/?q=Gualeguaychú"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-xs font-semibold font-sans text-stone-400 hover:text-[#1c352d] transition-colors"

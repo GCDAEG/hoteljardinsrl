@@ -3,6 +3,7 @@
 import React from "react";
 import { useLenis } from "lenis/react";
 import { HeroCTAButton } from "@/components/ui/CTAButton";
+import { siteConfig } from "@/lib/site/siteConfig";
 
 const HeroSection = () => {
   const lenis = useLenis();
@@ -19,8 +20,8 @@ const HeroSection = () => {
       {/* Imagen de fondo grande con overlay oscuro sutil */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
         <img
-          src="https://i.postimg.cc/QMJfcPCh/Gemini-Generated-Image-631vqn631vqn631v.png"
-          alt="Fachada de Hotel Jardín"
+          src="https://i.postimg.cc/SR6gb8Vb/Gemini-Generated-Image-hoehm3hoehm3hoeh.png"
+          alt="hero ejemplo"
           className="absolute inset-0 w-full h-full object-cover object-center"
           loading="eager"
         />
@@ -33,19 +34,19 @@ const HeroSection = () => {
         <div className="max-w-3xl flex flex-col items-center gap-5 md:gap-7">
           {/* Subtítulo superior de trayectoria (30 años) */}
           <span className="font-sans text-xs sm:text-sm tracking-[0.25em] font-medium text-stone-200/90 uppercase">
-            Más de 30 años recibiendo huéspedes en Gualeguay
+            Más de 50 años recibiendo huéspedes en {siteConfig.brand.city}
           </span>
 
           {/* Título Principal */}
           <h1 className="text-white text-5xl sm:text-7xl lg:text-8xl font-serif tracking-tight leading-none mt-2">
             <span className="font-cursive block sm:inline text-6xl sm:text-8xl lg:text-9xl text-[#f7f8f6] antialiased">
-              Hotel Jardín
+              {siteConfig.brand.name}
             </span>
           </h1>
 
           {/* Subtítulo Corto */}
           <p className="text-stone-100/90 text-base sm:text-lg lg:text-xl font-light font-sans max-w-xl leading-relaxed text-balance">
-            Comodidad y tranquilidad para disfrutar tu estadía.
+            {siteConfig.brand.suffix}
           </p>
 
           {/* Botón de Conversión Destacado de WhatsApp */}

@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useLenis } from "lenis/react";
 import { cn } from "@/lib/utils";
 import { useRouter, usePathname } from "next/navigation";
+import { siteConfig } from "@/lib/site/siteConfig";
+import { Hotel } from "lucide-react";
 
 interface NavSection {
   id: string;
@@ -43,22 +45,24 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({
   return (
     <nav className="fixed top-0 left-0 w-full z-[100] h-20 hidden lg:flex items-center bg-white border-b border-stone-100 shadow-[0_2px_15px_-3px_rgba(28,53,45,0.03)] font-sans">
       <div className="w-full max-w-[1200px] mx-auto px-6 flex justify-between items-center h-full">
-        {/* LOGO - icon.png + Sacramento para "Hotel Jardín" */}
+        {/* LOGO - icon.png + Sacramento para "Hotel Ejemplo" */}
         <Link
           href="/"
           className="flex items-center gap-2.5 active:opacity-90 transition-opacity"
         >
-          <img
-            src="/icon.png"
-            alt="Hotel Jardín Icono"
-            className="w-11 h-11 object-contain"
-          />
+          <p className="">
+            <img
+              src="/icon.png"
+              alt="Hotel Anturio"
+              className="size-11 text-amber-400"
+            />
+          </p>
           <div className="flex flex-col items-start justify-center -space-y-2.5">
             <span className="font-cursive text-4xl text-[#1c352d] antialiased">
-              Hotel Jardín
+              {siteConfig.brand.name}
             </span>
             <span className="text-[8px] tracking-[0.3em] font-sans font-bold text-stone-400 uppercase pl-0.5">
-              Gualeguay
+              {siteConfig.brand.city}
             </span>
           </div>
         </Link>
@@ -90,7 +94,7 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({
         {/* ACCIONES - Botón verde "WhatsApp" */}
         <div className="flex items-center">
           <a
-            href="https://wa.me/5493444443617?text=Hola!%20Me%20gustaría%20consultar%20disponibilidad."
+            href={`https://wa.me/${siteConfig.features.whatsappNumber}?text=Hola!%20Me%20gustaría%20consultar%20disponibilidad.`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold text-xs tracking-wider uppercase rounded-full shadow-sm transition-all duration-300 active:scale-[0.98]"
