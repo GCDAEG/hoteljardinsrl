@@ -12,21 +12,20 @@ import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: {
-    default: "Hotel Jardín | Gualeguay, Entre Ríos",
-    template: "%s | Hotel Jardín",
+    default: "Hotel Anturio | Gualeguaychú, Entre Ríos",
+    template: "%s | Hotel Anturio",
   },
   description:
-    "Disfrutá de una estadía tranquila, cómoda y familiar en el corazón de Gualeguay. Habitaciones equipadas, cochera y atención personalizada.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   openGraph: {
-    title: "Hotel Jardín - Gualeguay",
-    description:
-      "Comodidad y tranquilidad para disfrutar tu estadía en Entre Ríos.",
+    title: "Hotel Anturio - Gualeguaychú",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     images: [
       {
-        url: "/preview.jpeg", // Asegurate de tener una foto linda de la fachada o jardín acá
+        url: "/preview.jpeg",
         width: 1200,
         height: 630,
-        alt: "Hotel Jardín Gualeguay",
+        alt: "Hotel Anturio Gualeguaychú",
       },
     ],
     type: "website",
